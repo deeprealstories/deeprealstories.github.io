@@ -207,7 +207,7 @@ html, body {
   left: 3vw;
   z-index: 50;
   width: 18vw;
-  max-width: 230px; /* Increased logo size */
+  max-width: 230px;
   min-width: 150px;
 }
 
@@ -227,10 +227,10 @@ html, body {
 .right-top-manu {
   position: absolute;
   top: 75px;
-  right: 8vw; /* Shifted slightly right so "Stories" S is 100% uncovered */
+  right: 8vw;
   z-index: 50;
   width: 24vw;
-  max-width: 280px; /* Increased card width by +20px */
+  max-width: 280px;
   min-width: 170px;
 }
 
@@ -240,7 +240,7 @@ html, body {
   border-radius: 14px;
   padding: 8px;
   text-align: center;
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6); /* Soft Glow */
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
 }
 
 .manu-img-wrapper {
@@ -265,17 +265,17 @@ html, body {
 
 .manu-caption {
   font-size: 0.88rem;
-  font-weight: 800; /* Center & Bold */
+  font-weight: 800;
   color: var(--gold-light);
   margin-top: 6px;
   text-align: center;
   text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
-/* 3. RIGHT BOTTOM DPK PORTRAIT (Shifted slightly upward to avoid crowd) */
+/* 3. RIGHT BOTTOM DPK PORTRAIT */
 .right-bottom-dpk {
   position: absolute;
-  bottom: 4vh; /* Shifted slightly upward */
+  bottom: 4vh;
   right: 1.5vw;
   z-index: 50;
   width: 14vw;
@@ -315,8 +315,8 @@ html, body {
 }
 
 .gold-explore-btn:hover {
-  transform: scale(1.05); /* Hover Scale 1.05 */
-  box-shadow: var(--gold-glow-strong); /* Gold Shine Glow */
+  transform: scale(1.05);
+  box-shadow: var(--gold-glow-strong);
 }
 
 /* MASTER POPUP MODAL & SECTIONS */
