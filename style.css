@@ -9,8 +9,10 @@
   --gold-light: #F3E5AB;
   --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
   --gold-glow: 0 0 25px rgba(212, 175, 55, 0.85);
+  --gold-glow-strong: 0 0 35px rgba(212, 175, 55, 1), 0 0 50px rgba(212, 175, 55, 0.5);
   --font-body: 'Montserrat', sans-serif;
   --font-heading: 'Cinzel', serif;
+  --font-hindi: 'Tiro Devanagari Hindi', serif;
 }
 
 html, body {
@@ -23,7 +25,71 @@ html, body {
   position: relative;
 }
 
-/* 1. FULLSCREEN BACKGROUND (NO SIDE BLACK BARS) */
+/* 10. LOADING ANIMATION OVERLAY */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+  animation: pulseGlow 1.8s infinite alternate;
+}
+
+.book-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  animation: bounceBook 1.2s infinite ease-in-out alternate;
+}
+
+.loader-logo {
+  width: 90px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: var(--gold-glow);
+  margin-bottom: 0.8rem;
+}
+
+.loader-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loader-sub {
+  font-family: var(--font-hindi);
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin-top: 4px;
+}
+
+@keyframes bounceBook {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+  0% { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4)); }
+  100% { filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.9)); }
+}
+
+/* FULLSCREEN BACKGROUND */
 .bg-stage {
   position: absolute;
   top: 0;
@@ -50,7 +116,7 @@ html, body {
   background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%);
 }
 
-/* 2. GLASS NAVBAR */
+/* GLASS NAVBAR */
 .top-nav {
   position: absolute;
   top: 0;
@@ -114,37 +180,37 @@ html, body {
   text-shadow: 0 0 10px rgba(212, 175, 55, 1);
 }
 
-/* 3. LEFT SIDE LOGO (~270px) */
+/* 1. LEFT SIDE ENLARGED LOGO (180-200px) */
 .left-logo-hero {
   position: absolute;
-  top: 12vh;
-  left: 3vw;
+  top: 13vh;
+  left: 3.5vw;
   z-index: 50;
-  width: 22vw;
-  max-width: 270px;
-  min-width: 150px;
+  width: 16vw;
+  max-width: 200px; /* Adjusted to 180-200px range */
+  min-width: 140px;
 }
 
 .large-logo-img {
   width: 100%;
   height: auto;
   border-radius: 50%;
-  box-shadow: var(--gold-glow);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.7); /* Controlled Glow */
   transition: transform 0.3s ease;
 }
 
 .large-logo-img:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
-/* 4. RIGHT TOP MANU CARD (POSITIONED LEFTWARDS TO SHOW ANSUNA SANDESH & TREE LIGHT) */
+/* 2. RIGHT TOP MANU CARD (+15% Height, Zoom 1.1x, Enhanced Glow) */
 .right-top-manu {
   position: absolute;
   top: 75px;
-  right: 12vw; /* Shifted leftwards so tree light on the right is totally visible */
+  right: 12vw;
   z-index: 50;
   width: 22vw;
-  max-width: 260px; /* Wider dimensions for uncropped poster */
+  max-width: 260px;
   min-width: 160px;
 }
 
@@ -154,12 +220,12 @@ html, body {
   border-radius: 14px;
   padding: 8px;
   text-align: center;
-  box-shadow: var(--gold-glow);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.9); /* Increased Glow */
 }
 
 .manu-img-wrapper {
   width: 100%;
-  height: 180px; /* Taller viewport showing full Ansuna Sandesh text */
+  height: 205px; /* Height increased by 15% */
   border-radius: 10px;
   overflow: hidden;
 }
@@ -167,26 +233,33 @@ html, body {
 .manu-img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Contain mode guarantees no text cropping */
+  object-fit: contain;
   background: #050505;
+  transform: scale(1.1); /* Zoom 1.1x */
+  transition: transform 0.3s ease;
+}
+
+.manu-img-wrapper:hover .manu-img {
+  transform: scale(1.15);
 }
 
 .manu-caption {
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 800; /* Bold Caption */
   color: var(--gold-light);
   margin-top: 6px;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
-/* 5. RIGHT BOTTOM DPK PORTRAIT */
+/* 3. RIGHT BOTTOM DPK PORTRAIT (10% Smaller & Lantern Completely Uncovered) */
 .right-bottom-dpk {
   position: absolute;
-  bottom: 2vh;
-  right: 1.5vw;
+  bottom: 1.5vh;
+  right: 1vw; /* Shifted down and right */
   z-index: 50;
-  width: 16vw;
-  max-width: 210px;
-  min-width: 120px;
+  width: 14vw;
+  max-width: 180px; /* Reduced size by ~10% */
+  min-width: 110px;
 }
 
 .dpk-img {
@@ -197,10 +270,10 @@ html, body {
   transition: transform 0.3s ease;
 }
 
-/* 6. EXPLORE MUSIC BUTTON OVERLAY */
+/* 4 & 5. EXPLORE MUSIC BUTTON WITH HOVER GLOW & SCALE */
 .cta-hotspot-area {
   position: absolute;
-  bottom: 3.8vh;
+  bottom: 2.8vh; /* Positioned with good gap from text */
   left: 50%;
   transform: translateX(-50%);
   z-index: 60;
@@ -217,12 +290,43 @@ html, body {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: var(--gold-glow);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .gold-explore-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 40px rgba(212, 175, 55, 1);
+  transform: scale(1.08); /* Scale effect */
+  box-shadow: var(--gold-glow-strong); /* High Glow Animation */
+}
+
+/* 9. FLOATING ACTION BUTTONS (BOTTOM RIGHT) */
+.floating-quick-links {
+  position: fixed;
+  bottom: 25px;
+  right: 20px;
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.float-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: var(--gold-glow);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.float-btn:hover {
+  transform: scale(1.15) translateY(-3px);
+  background: var(--gold-primary);
 }
 
 /* 7. MASTER POPUP MODAL & SECTIONS */
@@ -334,6 +438,32 @@ html, body {
   transform: translateY(-2px);
 }
 
+/* 6. EMOTIONAL ABOUT SECTION */
+.about-card-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  padding: 1.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.about-text-hindi {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #eeeeee;
+  font-family: var(--font-body);
+}
+
+.quote-text {
+  margin-top: 1rem;
+  font-family: var(--font-hindi);
+  font-size: 1.25rem;
+  color: var(--gold-light);
+  font-style: italic;
+  text-align: center;
+}
+
+/* 7. CONTACT GRID WITH INDIA LINE */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -385,7 +515,7 @@ html, body {
   opacity: 0.85;
 }
 
-/* WHATSAPP QR DISPLAY BOX */
+/* WHATSAPP QR CODE DISPLAY */
 .qr-container-box {
   margin-top: 1.5rem;
   display: flex;
@@ -424,19 +554,53 @@ html, body {
   margin-top: 0.6rem;
 }
 
+/* 8. POLISHED FOOTER SECTION */
 .modal-footer {
   text-align: center;
-  margin-top: 1.8rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(212, 175, 55, 0.2);
-  font-size: 0.8rem;
-  color: #ccc;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
 }
 
-.copyright-text {
-  font-size: 0.72rem;
+.footer-divider {
+  color: var(--gold-primary);
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-tagline {
+  font-family: var(--font-hindi);
+  font-size: 0.9rem;
+  color: var(--gold-light);
+  margin-top: 2px;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #ddd;
+  margin-top: 0.6rem;
+  font-weight: 600;
+}
+
+.footer-made {
+  font-size: 0.75rem;
+  color: var(--gold-light);
+  margin-top: 3px;
+}
+
+.footer-rights {
+  font-size: 0.7rem;
   color: #888;
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 /* RESPONSIVE FOR MOBILE */
@@ -444,7 +608,7 @@ html, body {
   .left-logo-hero {
     top: 8vh;
     left: 2vw;
-    width: 28vw;
+    width: 25vw;
   }
 
   .right-top-manu {
@@ -454,13 +618,13 @@ html, body {
   }
 
   .manu-img-wrapper {
-    height: 110px;
+    height: 125px;
   }
 
   .right-bottom-dpk {
-    bottom: 2vh;
-    right: 1vw;
-    width: 30vw;
+    bottom: 1vh;
+    right: 0.5vw;
+    width: 28vw;
   }
 
   .gold-explore-btn {
@@ -470,5 +634,16 @@ html, body {
 
   .links-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .floating-quick-links {
+    bottom: 15px;
+    right: 12px;
+  }
+
+  .float-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
   }
 }
