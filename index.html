@@ -16,6 +16,16 @@
 </head>
 <body>
 
+  <!-- 10. CINEMATIC GOLDEN LOADING ANIMATION -->
+  <div class="loader-overlay" id="loader">
+    <div class="loader-content">
+      <div class="book-icon">📖</div>
+      <img src="logo.png" alt="Logo" class="loader-logo" />
+      <h2 class="loader-title">Deep Real Stories</h2>
+      <p class="loader-sub">एक हकीकत जीवन की</p>
+    </div>
+  </div>
+
   <!-- Fullscreen Cover Background Stage -->
   <div class="bg-stage">
     <img src="background.jpg" alt="Deep Real Stories Background" class="bg-img" />
@@ -41,12 +51,12 @@
     </div>
   </header>
 
-  <!-- Left Side Large Logo (~270px) -->
+  <!-- 1. LEFT SIDE ENLARGED LOGO (180-200px) -->
   <div class="left-logo-hero">
     <img src="logo.png" alt="Deep Real Stories Golden Logo" class="large-logo-img" />
   </div>
 
-  <!-- Right Top Manu Memorial Card (Positioned Leftwards for Ansuna Sandesh & Tree Light) -->
+  <!-- 2. RIGHT TOP MANU MEMORIAL CARD (Height +15%, Zoom 1.1x, Bold Caption) -->
   <div class="right-top-manu">
     <div class="manu-card-box">
       <div class="manu-img-wrapper">
@@ -56,16 +66,23 @@
     </div>
   </div>
 
-  <!-- Right Bottom Dpk Portrait Badge -->
+  <!-- 3. RIGHT BOTTOM DPK PORTRAIT (10% Smaller & Positioned so Lamp is 100% Uncovered) -->
   <div class="right-bottom-dpk">
     <img src="Dpk.png" alt="Deep Chaudhary (Dabba Bhai)" class="dpk-img" />
   </div>
 
-  <!-- Single Hotspot Button Directly Over Poster Button Image -->
+  <!-- 4 & 5. EXPLORE MUSIC BUTTON WITH ENHANCED HOVER & SPACING -->
   <div class="cta-hotspot-area">
     <button class="gold-explore-btn" onclick="openMusicModal('music')" aria-label="Explore Music">
       🎵 EXPLORE MUSIC
     </button>
+  </div>
+
+  <!-- 9. FLOATING ACTION BUTTONS (WhatsApp, YouTube, Telegram) -->
+  <div class="floating-quick-links">
+    <a href="https://wa.me/919639197198" target="_blank" class="float-btn wa-float" title="WhatsApp Business">🟢</a>
+    <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank" class="float-btn yt-float" title="Official YouTube">▶️</a>
+    <a href="https://t.me/deeprealstories" target="_blank" class="float-btn tg-float" title="Telegram Channel">💬</a>
   </div>
 
   <!-- MASTER ALL-IN-ONE MODAL POPUP -->
@@ -79,7 +96,7 @@
         <p class="modal-sub">Deep Real Stories — "एक हकीकत जीवन की"</p>
       </div>
 
-      <!-- 1. LISTEN EVERYWHERE (STREAMING PLATFORMS) -->
+      <!-- STREAMING PLATFORMS -->
       <section class="links-section" id="modal-music">
         <h3 class="section-title">🎧 LISTEN MUSIC EVERYWHERE</h3>
         <div class="links-grid">
@@ -101,7 +118,7 @@
         </div>
       </section>
 
-      <!-- 2. SOCIALS: DEEP REAL STORIES (BRAND) -->
+      <!-- SOCIALS: DEEP REAL STORIES -->
       <section class="links-section" id="modal-socials">
         <h3 class="section-title">🌐 DEEP REAL STORIES (OFFICIAL BRAND SOCIALS)</h3>
         <div class="links-grid">
@@ -120,7 +137,7 @@
         </div>
       </section>
 
-      <!-- 3. SOCIALS: DEEP CHAUDHARY (ARTIST PERSONAL) -->
+      <!-- SOCIALS: DEEP CHAUDHARY -->
       <section class="links-section">
         <h3 class="section-title">👤 DEEP CHAUDHARY (ARTIST PERSONAL)</h3>
         <div class="links-grid">
@@ -134,7 +151,7 @@
         </div>
       </section>
 
-      <!-- 4. SOCIALS: MANU MEMORIAL -->
+      <!-- SOCIALS: MANU MEMORIAL -->
       <section class="links-section">
         <h3 class="section-title">❤️ MANU MEMORIAL TRIBUTES</h3>
         <div class="links-grid">
@@ -144,17 +161,17 @@
         </div>
       </section>
 
-      <!-- 5. ABOUT DEEP REAL STORIES -->
+      <!-- 6. EMOTIONAL HINDI + ENGLISH ABOUT SECTION -->
       <section class="about-card-box" id="modal-about">
         <h3 class="section-title">🎬 ABOUT DEEP REAL STORIES</h3>
-        <p class="about-text">
-          Deep Real Stories is an independent music and storytelling platform founded by <strong>Deep Chaudhary (Dabba Bhai)</strong>. 
-          Our mission is to transform real-life emotions, struggles, and truth into cinematic songs.
+        <p class="about-text-hindi">
+          Deep Real Stories सिर्फ़ एक Music Channel नहीं...<br>
+          यह एक <strong>गहरा एहसास</strong> है जहाँ जीवन की सच्ची कहानियाँ और भावनाएँ संगीत बनती हैं।
         </p>
-        <blockquote class="quote-text">"हम गाने नहीं बनाते... हम Audio Cinema बनाते हैं।"</blockquote>
+        <blockquote class="quote-text">"यहाँ गाने नहीं... <strong>Audio Cinema</strong> बनता है।"</blockquote>
       </section>
 
-      <!-- 6. VERIFIED OFFICIAL CONTACT & WHATSAPP SECTION -->
+      <!-- 7. CONTACT SECTION (SINGLE LINE LOCATION WITH INDIA) -->
       <section class="contact-section-box" id="modal-contact">
         <h3 class="section-title">📩 OFFICIAL CONTACT & DIRECT CHAT</h3>
         
@@ -195,7 +212,7 @@
             <span class="icon">📍</span>
             <div class="contact-info">
               <strong>Location</strong>
-              <span>Amroha, Uttar Pradesh, India</span>
+              <span>Amroha, Uttar Pradesh, 🇮🇳 India</span>
             </div>
           </div>
 
@@ -208,7 +225,7 @@
           </a>
         </div>
 
-        <!-- WHATSAPP QR CODE DISPLAY BOX (Exact GitHub Filename Match) -->
+        <!-- WHATSAPP QR DISPLAY -->
         <div class="qr-container-box">
           <div class="qr-card">
             <h4>Scan Code to Chat on WhatsApp</h4>
@@ -218,16 +235,31 @@
         </div>
       </section>
 
-      <div class="modal-footer">
-        <p>❤️ Thanks for Listening & Supporting<br><strong>Deep Chaudhary (Dabba Bhai)</strong> — Deep Real Stories</p>
-        <p class="copyright-text">© 2026 Deep Real Stories. All Rights Reserved.</p>
-      </div>
+      <!-- 8. BRAND FOOTER INSIDE MODAL & MAIN PAGE -->
+      <footer class="modal-footer">
+        <div class="footer-divider">━━━━━━━━━━━━━━━━━━━━</div>
+        <h3 class="footer-brand">Deep Real Stories</h3>
+        <p class="footer-tagline">एक हकीकत जीवन की</p>
+        <p class="footer-copy">© 2026 Deep Chaudhary (Dabba Bhai)</p>
+        <p class="footer-made">Made with ❤️ in India</p>
+        <p class="footer-rights">All Rights Reserved</p>
+      </footer>
 
     </div>
   </div>
 
-  <!-- Inline Script Guaranteeing 100% Functionality -->
   <script>
+    // 10. LOADING ANIMATION (2 SECONDS)
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var loader = document.getElementById('loader');
+        if (loader) {
+          loader.classList.add('fade-out');
+          setTimeout(function() { loader.style.display = 'none'; }, 600);
+        }
+      }, 2000);
+    });
+
     function openMusicModal(targetSection) {
       var modal = document.getElementById('masterModal');
       if(modal) {
