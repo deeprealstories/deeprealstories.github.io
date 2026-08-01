@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Real Stories ( एक हकीकत जीवन की ) | Official Website</title>
   
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
@@ -25,16 +24,16 @@
       <a href="#home" class="active">HOME</a>
       <a href="javascript:void(0)" onclick="openMusicModal()">MUSIC</a>
       <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank">YOUTUBE</a>
-      <a href="#contact-modal" onclick="openMusicModal()">CONTACT</a>
+      <a href="javascript:void(0)" onclick="openMusicModal()">CONTACT</a>
     </nav>
   </header>
 
-  <!-- Left Side Logo Overlay (Positioned right above the standing figure's head) -->
+  <!-- Left Side Logo Overlay (Above standing figure's head) -->
   <div class="left-logo-above-head">
     <img src="logo.png" alt="Deep Real Stories Logo" class="logo-img" />
   </div>
 
-  <!-- Right Top Manu Memorial Card -->
+  <!-- Right Top Manu Memorial Card (Enlarged) -->
   <div class="right-top-manu">
     <div class="manu-card-inner">
       <img src="manu.jpg" alt="In Memory of Manu" class="manu-img" />
@@ -47,14 +46,14 @@
     <img src="Dpk.png" alt="Deep Chaudhary (Dabba Bhai)" class="dpk-img" />
   </div>
 
-  <!-- Clickable Overlay Hotspot right over the image's "EXPLORE MUSIC" button -->
+  <!-- Clickable Overlay Hotspot over background "EXPLORE MUSIC" button -->
   <div class="cta-hotspot-area">
     <button class="invisible-explore-btn" onclick="openMusicModal()" aria-label="Explore Music">
-      <span>EXPLORE MUSIC 🎵</span>
+      EXPLORE MUSIC 🎵
     </button>
   </div>
 
-  <!-- MUSIC & SOCIAL LINKS POPUP MODAL -->
+  <!-- ALL ACTIVE LINKS POPUP MODAL -->
   <div class="music-modal-overlay" id="musicModal">
     <div class="music-modal-content">
       <button class="close-modal-btn" onclick="closeMusicModal()">&times;</button>
@@ -118,7 +117,6 @@
     function closeMusicModal() {
       document.getElementById('musicModal').classList.remove('active');
     }
-    // Close modal on outer click
     window.onclick = function(event) {
       const modal = document.getElementById('musicModal');
       if (event.target === modal) {
