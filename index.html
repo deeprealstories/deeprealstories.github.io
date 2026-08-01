@@ -1,80 +1,90 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Official website of Deep Chaudhary (Dabba Bhai) — Deep Real Stories."
-    />
-    <title>Deep Real Stories | Deep Chaudhary</title>
-    <link rel="preload" as="image" href="background.jpg" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main id="home" class="hero">
-      <!-- This image uses object-fit: contain so the complete original artwork stays visible. -->
-      <img class="hero__background" src="background.jpg" alt="Deep Real Stories artwork" />
-      <div class="hero__shade" aria-hidden="true"></div>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Chaudhary (Dabba Bhai) | Deep Real Stories Official</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-      <header class="site-header">
-        <a class="brand" href="#home" aria-label="Deep Real Stories home">
-          <img class="brand__mark" src="logo.png" alt="Deep Real Stories logo" />
-          <span class="brand__words">
-            <strong>Deep Real Stories</strong>
-            <small>एक हकीकत जीवन की</small>
-          </span>
-        </a>
+  <!-- Fullscreen Main Background Image -->
+  <div class="bg-wrapper">
+    <img src="background.jpg" alt="Deep Real Stories Background" class="main-bg-img" />
+  </div>
 
-        <nav class="site-nav" aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#music">Music</a>
-          <a href="#youtube">YouTube</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-
-      <section class="hero__content" aria-labelledby="hero-title">
-        <div class="hero__art hero__art--logo">
-          <img src="logo.png" alt="Deep Real Stories logo" />
+  <!-- Premium Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      
+      <!-- Top Left Logo -->
+      <a href="#home" class="brand-logo">
+        <img src="logo.png" alt="Deep Real Stories Logo" class="nav-logo-img" />
+        <div class="brand-text">
+          <span class="brand-name">Deep Real Stories</span>
+          <span class="brand-sub">एक हकीकत जीवन की</span>
         </div>
+      </a>
 
-        <div class="hero__copy">
-          <p class="eyebrow">Official Website of</p>
-          <h1 id="hero-title">Deep Real Stories</h1>
-          <p class="tagline">एक हकीकत जीवन की</p>
-          <p class="artist-name">Deep Chaudhary <span>(Dabba Bhai)</span></p>
-          <a class="button" href="#music">Explore Music <span aria-hidden="true">→</span></a>
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#music" class="nav-link">Music</a>
+        <a href="#youtube" class="nav-link">YouTube</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Hero Interactive Area -->
+  <section class="hero-section" id="home">
+    <div class="hero-layout">
+
+      <!-- Center CTA Click Zone overlaying image button -->
+      <div class="center-cta-box">
+        <a href="#music" class="gold-action-btn">Explore Music</a>
+      </div>
+
+      <!-- Right Side Visual Overlay (Dpk.png Showcase) -->
+      <div class="right-artist-badge">
+        <div class="frame-glow">
+          <img src="Dpk.png" alt="Deep Chaudhary (Dabba Bhai)" class="dpk-portrait" />
         </div>
+      </div>
 
-        <div class="hero__art hero__art--portrait">
-          <img src="Dpk.png" alt="Deep Chaudhary, known as Dabba Bhai" />
-        </div>
-      </section>
-    </main>
+    </div>
+  </section>
 
-    <section id="music" class="info-section">
-      <p class="section-label">Latest Release</p>
-      <h2>Ansuna Sandesh</h2>
-      <p>Listen to the latest release from Deep Real Stories.</p>
-      <a class="text-link" href="#contact">Get listening links →</a>
-    </section>
+  <!-- Mobile Nav Script -->
+  <script>
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navMenu = document.getElementById('nav-menu');
 
-    <section id="youtube" class="info-section info-section--dark">
-      <p class="section-label">Videos</p>
-      <h2>Latest videos</h2>
-      <p>Watch new stories, music, and behind-the-scenes moments on YouTube.</p>
-      <a class="text-link" href="#contact">Visit YouTube →</a>
-    </section>
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navMenu.classList.toggle('open');
+    });
 
-    <footer id="contact" class="site-footer">
-      <p>For music, bookings, and collaborations, get in touch.</p>
-      <a href="mailto:hello@deeprealstories.com">hello@deeprealstories.com</a>
-      <small>© <span id="year"></span> Deep Real Stories</small>
-    </footer>
-
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navMenu.classList.remove('open');
+      });
+    });
+  </script>
+</body>
 </html>
