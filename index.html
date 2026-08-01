@@ -7,64 +7,42 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- Fullscreen Main Background Image -->
-  <div class="bg-wrapper">
-    <img src="background.jpg" alt="Background" class="main-bg-img" />
+  <div class="bg-container">
+    <img src="background.jpg" alt="Deep Real Stories Background" class="bg-img" />
   </div>
 
-  <!-- Header Section -->
-  <header class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="brand-logo">
-        <img src="logo.png" alt="Logo" class="nav-logo-img" />
-      </a>
+  <!-- Top Header Layout -->
+  <header class="header-bar">
+    <!-- Top Left: Logo -->
+    <div class="header-left">
+      <img src="logo.png" alt="Logo" class="top-logo-img" />
+    </div>
 
-      <nav class="nav-menu" id="nav-menu">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#music" class="nav-link">Music</a>
-        <a href="#youtube" class="nav-link">YouTube</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
+    <!-- Top Navigation Menu -->
+    <nav class="header-nav">
+      <a href="#home" class="nav-item active">HOME</a>
+      <a href="#music" class="nav-item">MUSIC</a>
+      <a href="#youtube" class="nav-item">YOUTUBE</a>
+      <a href="#contact" class="nav-item">CONTACT</a>
+    </nav>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <!-- Top Right: Photo (Dpk.png) -->
+    <div class="header-right">
+      <img src="Dpk.png" alt="Deep Chaudhary" class="top-dpk-img" />
     </div>
   </header>
 
-  <!-- Hero Layout -->
-  <main class="hero-section" id="home">
-    <div class="hero-container">
-      
-      <!-- Center Button overlay -->
-      <div class="center-cta">
-        <a href="#music" class="gold-action-btn">Explore Music</a>
-      </div>
-
-      <!-- Right Side Profile Overlay -->
-      <div class="right-profile">
-        <img src="Dpk.png" alt="Deep Chaudhary" class="dpk-img" />
-      </div>
-
-    </div>
+  <!-- Bottom Interactive CTA Button -->
+  <main class="hero-content">
+    <a href="#music" class="explore-btn">EXPLORE MUSIC</a>
   </main>
 
-  <script>
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navMenu = document.getElementById('nav-menu');
-
-    mobileToggle.addEventListener('click', () => {
-      mobileToggle.classList.toggle('active');
-      navMenu.classList.toggle('open');
-    });
-  </script>
 </body>
 </html>
