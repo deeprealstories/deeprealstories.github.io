@@ -13,34 +13,36 @@
 </head>
 <body>
 
-  <!-- Fullscreen Main Background Image -->
-  <div class="bg-container">
-    <img src="background.jpg" alt="Deep Real Stories Background" class="bg-img" />
+  <!-- Fullscreen Main Background (100% Viewport) -->
+  <div class="bg-layer">
+    <img src="background.jpg" alt="Background" class="bg-img" />
   </div>
 
-  <!-- Top Header Layout -->
-  <header class="header-bar">
-    <!-- Top Left: Logo -->
-    <div class="header-left">
-      <img src="logo.png" alt="Logo" class="top-logo-img" />
+  <!-- Header Section -->
+  <header class="top-header">
+    
+    <!-- Top Left: Logo (15% Size) -->
+    <div class="logo-box">
+      <img src="logo.png" alt="Logo" class="small-logo" />
     </div>
 
-    <!-- Top Navigation Menu -->
-    <nav class="header-nav">
+    <!-- Center Navigation Links -->
+    <nav class="center-nav">
       <a href="#home" class="nav-item active">HOME</a>
       <a href="#music" class="nav-item">MUSIC</a>
       <a href="#youtube" class="nav-item">YOUTUBE</a>
       <a href="#contact" class="nav-item">CONTACT</a>
     </nav>
 
-    <!-- Top Right: Photo (Dpk.png) -->
-    <div class="header-right">
-      <img src="Dpk.png" alt="Deep Chaudhary" class="top-dpk-img" />
+    <!-- Top Right: Photo Badge (20% Size) -->
+    <div class="profile-box">
+      <img src="Dpk.png" alt="Deep Chaudhary" class="small-profile" />
     </div>
+
   </header>
 
-  <!-- Bottom Interactive CTA Button -->
-  <main class="hero-content">
+  <!-- Invisible Overlay Area for Button Click -->
+  <main class="content-area">
     <a href="#music" class="explore-btn">EXPLORE MUSIC</a>
   </main>
 
