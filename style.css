@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. RESET & DESIGN SYSTEM VARIABLES
+   RESET & ABSOLUTE VIEWPORT LOCK
    ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -10,11 +10,8 @@
 :root {
   --gold-primary: #D4AF37;
   --gold-light: #F3E5AB;
-  --gold-dark: #8C6D13;
   --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
-  --gold-glow-strong: 0 0 25px rgba(212, 175, 55, 0.85), 0 0 45px rgba(212, 175, 55, 0.4);
-  --gold-glow-subtle: 0 0 15px rgba(212, 175, 55, 0.5);
-  --black-base: #050505;
+  --gold-glow: 0 0 25px rgba(212, 175, 55, 0.8);
   --font-heading: 'Cinzel', serif;
   --font-body: 'Montserrat', sans-serif;
   --font-hindi: 'Tiro Devanagari Hindi', serif;
@@ -24,499 +21,317 @@ html, body {
   width: 100vw;
   height: 100vh;
   font-family: var(--font-body);
-  background-color: var(--black-base);
-  color: #FFFFFF;
-  overflow: hidden; /* Desktop view fix for exact viewport fitting */
+  background-color: #000;
+  color: #fff;
+  overflow: hidden !important;
+  position: relative;
 }
 
 /* ==========================================================================
-   2. FULLSCREEN BACKGROUND (100% COVERAGE, NO CROP)
+   1. 100% BACKGROUND
    ========================================================================== */
-.bg-viewport {
-  position: fixed;
+.bg-stage {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  background-color: #000;
 }
 
-.bg-image {
+.bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
 
-.bg-vignette {
+/* ==========================================================================
+   2. NAVBAR
+   ========================================================================== */
+.top-nav {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.75) 100%);
-  pointer-events: none;
-}
-
-/* ==========================================================================
-   3. STICKY GLASS NAVBAR
-   ========================================================================== */
-.glass-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100vw;
+  height: 60px;
   z-index: 100;
-  background: rgba(5, 5, 5, 0.65);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-}
-
-.nav-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0.8rem 2.5rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 3vw;
+  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
 }
 
-.nav-brand {
+.nav-left {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  text-decoration: none;
+  gap: 10px;
 }
 
-.nav-logo-tiny {
-  height: 42px;
+.nav-logo-small {
+  height: 38px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
 }
 
-.nav-brand-text {
+.nav-title {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--gold-light);
   letter-spacing: 1px;
 }
 
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
-.nav-item {
-  color: #FFFFFF;
+.nav-links a {
+  color: #fff;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  position: relative;
-  padding-bottom: 4px;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s;
 }
 
-.nav-item::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--gold-gradient);
-  transition: width 0.3s ease;
-}
-
-.nav-item:hover,
-.nav-item.active {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--gold-light);
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
 }
 
-.nav-item:hover::after,
-.nav-item.active::after {
+/* ==========================================================================
+   3. LEFT SIDE LOGO (25%)
+   ========================================================================== */
+.left-logo-zone {
+  position: absolute;
+  top: 50%;
+  left: 2vw;
+  transform: translateY(-50%);
+  width: 25vw;
+  max-width: 230px;
+  z-index: 10;
+}
+
+.left-logo-img {
   width: 100%;
-}
-
-/* Mobile Hamburger Toggle */
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.mobile-toggle .bar {
-  width: 25px;
-  height: 2px;
-  background-color: var(--gold-primary);
-  transition: all 0.3s ease;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.6));
 }
 
 /* ==========================================================================
-   4. HERO STAGE GRID (25% - 50% - 25% LAYOUT)
+   4. CENTER CONTENT
    ========================================================================== */
-.hero-stage {
-  position: relative;
-  z-index: 10;
-  width: 100vw;
-  height: 100vh;
-  padding-top: 70px; /* Space for Navbar */
-}
-
-.hero-grid {
-  max-width: 1440px;
-  height: calc(100vh - 70px);
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
-  align-items: center;
-}
-
-/* --- LEFT COLUMN (25%): Transparent Large Logo --- */
-.grid-left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.floating-logo-wrapper {
-  animation: floatSoft 4s ease-in-out infinite alternate;
-}
-
-.hero-logo-large {
-  width: 100%;
-  max-width: 240px; /* Exactly ~240px as per requirements */
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
-  transition: transform 0.4s ease;
-}
-
-.hero-logo-large:hover {
-  transform: scale(1.05);
-}
-
-@keyframes floatSoft {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-10px); }
-}
-
-/* --- CENTER COLUMN (50%): Golden Typography & Buttons --- */
-.grid-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.center-content-zone {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48vw;
   text-align: center;
-  padding: 0 1rem;
+  z-index: 10;
 }
 
-.main-title {
+.hero-title {
   font-family: var(--font-heading);
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   font-weight: 800;
   line-height: 1.08;
   background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+  text-shadow: 0 4px 15px rgba(0,0,0,0.9);
 }
 
-.tagline-divider {
+.tagline-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-  margin-top: 0.6rem;
+  gap: 8px;
+  margin-top: 6px;
   color: var(--gold-primary);
 }
 
-.hindi-tagline {
+.hindi-text {
   font-family: var(--font-hindi);
-  font-size: 1.9rem;
+  font-size: 1.6rem;
   color: var(--gold-light);
-  font-weight: 500;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.gold-wing-left,
-.gold-wing-right {
-  font-size: 1.2rem;
-}
-
-.website-meta {
-  font-size: 0.85rem;
-  text-transform: uppercase;
+.meta-lead {
+  font-size: 0.8rem;
   letter-spacing: 2.5px;
   color: rgba(255, 255, 255, 0.8);
-  margin-top: 1.4rem;
+  margin-top: 1rem;
 }
 
 .artist-name {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
   background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 0.2rem;
 }
 
 .artist-alias {
-  font-family: var(--font-body);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--gold-light);
   font-style: italic;
-  font-weight: 500;
-  margin-top: -0.2rem;
 }
 
-/* BUTTONS */
-.cta-button-group {
+.btn-group {
   display: flex;
-  gap: 1.2rem;
-  margin-top: 2rem;
   justify-content: center;
-  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
 }
 
-.btn-gold-glow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.9rem 2.2rem;
-  font-family: var(--font-body);
-  font-size: 0.88rem;
+.btn-gold {
+  padding: 0.8rem 2rem;
+  font-size: 0.85rem;
   font-weight: 800;
-  letter-spacing: 2px;
-  color: #000000;
+  letter-spacing: 1.5px;
+  color: #000;
   background: var(--gold-gradient);
   border-radius: 50px;
   text-decoration: none;
-  box-shadow: var(--gold-glow-strong);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--gold-glow);
+  transition: transform 0.3s;
 }
 
-.btn-gold-glow:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 0 35px rgba(212, 175, 55, 1), 0 0 55px rgba(212, 175, 55, 0.6);
+.btn-gold:hover {
+  transform: scale(1.04);
 }
 
-.btn-gold-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.85rem 2rem;
-  font-family: var(--font-body);
-  font-size: 0.88rem;
+.btn-outline {
+  padding: 0.8rem 1.8rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: #FFFFFF;
-  background: rgba(10, 10, 10, 0.6);
+  letter-spacing: 1.5px;
+  color: #fff;
+  background: rgba(0,0,0,0.6);
   border: 1px solid var(--gold-primary);
   border-radius: 50px;
   text-decoration: none;
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
+  transition: background 0.3s;
 }
 
-.btn-gold-outline:hover {
+.btn-outline:hover {
   background: rgba(212, 175, 55, 0.2);
-  color: var(--gold-light);
-  box-shadow: var(--gold-glow-subtle);
-  transform: translateY(-3px);
 }
 
-.btn-icon {
-  font-size: 1rem;
+/* ==========================================================================
+   5. RIGHT TOP MANU CARD (25%)
+   ========================================================================== */
+.right-top-manu {
+  position: absolute;
+  top: 75px;
+  right: 2vw;
+  width: 25vw;
+  max-width: 170px;
+  z-index: 10;
 }
 
-/* --- RIGHT COLUMN (25%): Manu Card & Dpk Cutout --- */
-.grid-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 1.5rem 0;
-  position: relative;
-}
-
-/* RIGHT TOP: Manu Memorial Card */
-.manu-memorial-card {
-  align-self: flex-end;
-  background: rgba(10, 10, 10, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+.manu-card-inner {
+  background: rgba(10, 10, 10, 0.8);
   border: 1px solid var(--gold-primary);
-  border-radius: 14px;
-  padding: 0.6rem;
-  width: 170px;
+  border-radius: 12px;
+  padding: 6px;
   text-align: center;
-  box-shadow: var(--gold-glow-subtle);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.manu-memorial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--gold-glow-strong);
-}
-
-.manu-img-frame {
-  width: 100%;
-  height: 130px;
-  border-radius: 10px;
-  overflow: hidden;
+  box-shadow: var(--gold-glow);
 }
 
 .manu-img {
   width: 100%;
-  height: 100%;
+  height: 110px;
   object-fit: cover;
-  object-position: top center;
+  border-radius: 8px;
 }
 
 .manu-caption {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: var(--gold-light);
-  margin-top: 0.5rem;
-  letter-spacing: 0.5px;
-}
-
-/* RIGHT BOTTOM: Dpk Profile Cutout */
-.dpk-portrait-container {
-  align-self: flex-end;
-  margin-bottom: 0.5rem;
-}
-
-.dpk-portrait-img {
-  width: 250px; /* Precise proportion so it doesn't cover the background lamp */
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.95));
-  transition: transform 0.4s ease;
-}
-
-.dpk-portrait-img:hover {
-  transform: scale(1.03) translateY(-3px);
+  margin-top: 4px;
 }
 
 /* ==========================================================================
-   5. RESPONSIVE DESIGN (TABLETS & MOBILE)
+   6. RIGHT BOTTOM DPK PHOTO (20%)
    ========================================================================== */
-@media (max-width: 1100px) {
-  html, body {
-    overflow-y: auto; /* Allow scrolling on smaller viewports */
+.right-bottom-dpk {
+  position: absolute;
+  bottom: 2vh;
+  right: 2vw;
+  width: 20vw;
+  max-width: 220px;
+  z-index: 10;
+}
+
+.dpk-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(0,0,0,0.9));
+}
+
+/* ==========================================================================
+   RESPONSIVE (MOBILE)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .left-logo-zone {
+    width: 35vw;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .hero-stage {
-    height: auto;
-    min-height: 100vh;
-    padding-bottom: 3rem;
+  .center-content-zone {
+    width: 90vw;
+    top: 52%;
   }
 
-  .hero-grid {
-    height: auto;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding-top: 2rem;
+  .hero-title {
+    font-size: 2.2rem;
   }
 
-  .grid-left, .grid-center, .grid-right {
-    width: 100%;
-  }
-
-  .hero-logo-large {
-    max-width: 180px;
-  }
-
-  .main-title {
-    font-size: 2.6rem;
-  }
-
-  .hindi-tagline {
-    font-size: 1.5rem;
+  .hindi-text {
+    font-size: 1.2rem;
   }
 
   .artist-name {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
-  .grid-right {
+  .btn-group {
     flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    gap: 0.8rem;
   }
 
-  .manu-memorial-card {
-    align-self: center;
-    width: 200px;
+  .right-top-manu {
+    top: 65px;
+    right: 3vw;
+    width: 110px;
   }
 
-  .dpk-portrait-container {
-    align-self: center;
+  .manu-img {
+    height: 70px;
   }
 
-  .dpk-portrait-img {
-    width: 220px;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-container {
-    padding: 0.8rem 1.5rem;
-  }
-
-  .mobile-toggle {
-    display: flex;
+  .right-bottom-dpk {
+    bottom: 1vh;
+    right: 2vw;
+    width: 32vw;
   }
 
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem 0;
-    gap: 1.5rem;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    clip-path: circle(0% at 100% 0);
-    transition: clip-path 0.4s ease-in-out;
+    gap: 0.8rem;
   }
 
-  .nav-links.open {
-    clip-path: circle(140% at 100% 0);
-  }
-
-  .main-title {
-    font-size: 2.1rem;
-  }
-
-  .cta-button-group {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
-  }
-
-  .btn-gold-glow,
-  .btn-gold-outline {
-    width: 100%;
-    justify-content: center;
+  .nav-links a {
+    font-size: 0.7rem;
   }
 }
