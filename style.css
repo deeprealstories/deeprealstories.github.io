@@ -105,6 +105,7 @@ html, body {
   font-weight: 700;
   letter-spacing: 2px;
   transition: color 0.3s, text-shadow 0.3s;
+  cursor: pointer;
 }
 
 .nav-links a:hover,
@@ -136,35 +137,42 @@ html, body {
   transform: scale(1.04);
 }
 
-/* 4. RIGHT TOP MANU CARD (~220px) */
+/* 4. RIGHT TOP MANU CARD (POSITIONED LEFTWARDS TO SHOW ANSUNA SANDESH & TREE LIGHT) */
 .right-top-manu {
   position: absolute;
-  top: 80px;
-  right: 2.5vw;
+  top: 75px;
+  right: 12vw; /* Shifted leftwards so tree light on the right is totally visible */
   z-index: 50;
-  width: 18vw;
-  max-width: 220px;
-  min-width: 140px;
+  width: 22vw;
+  max-width: 260px; /* Wider dimensions for uncropped poster */
+  min-width: 160px;
 }
 
 .manu-card-box {
   background: rgba(10, 10, 10, 0.92);
-  border: 1px solid var(--gold-primary);
-  border-radius: 12px;
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 14px;
   padding: 8px;
   text-align: center;
   box-shadow: var(--gold-glow);
 }
 
+.manu-img-wrapper {
+  width: 100%;
+  height: 180px; /* Taller viewport showing full Ansuna Sandesh text */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .manu-img {
   width: 100%;
-  height: 145px;
-  object-fit: cover;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: contain; /* Contain mode guarantees no text cropping */
+  background: #050505;
 }
 
 .manu-caption {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--gold-light);
   margin-top: 6px;
@@ -348,7 +356,7 @@ html, body {
 .contact-card.whatsapp-highlight {
   background: rgba(37, 211, 102, 0.15);
   border-color: #25D366;
-  grid-column: 1 / -1; /* Full row width for WhatsApp Business */
+  grid-column: 1 / -1;
 }
 
 .contact-card.whatsapp-highlight:hover {
@@ -385,20 +393,20 @@ html, body {
 }
 
 .qr-card {
-  background: rgba(15, 15, 15, 0.9);
+  background: rgba(15, 15, 15, 0.95);
   border: 1px solid var(--gold-primary);
   border-radius: 12px;
-  padding: 1rem;
+  padding: 1.2rem;
   text-align: center;
-  max-width: 260px;
+  max-width: 280px;
   width: 100%;
   box-shadow: var(--gold-glow);
 }
 
 .qr-card h4 {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--gold-light);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
 }
 
 .qr-image {
@@ -406,13 +414,14 @@ html, body {
   height: auto;
   border-radius: 8px;
   background: #fff;
-  padding: 5px;
+  padding: 6px;
+  display: block;
 }
 
 .qr-card p {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: #ccc;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 .modal-footer {
@@ -440,12 +449,12 @@ html, body {
 
   .right-top-manu {
     top: 70px;
-    right: 2vw;
-    width: 130px;
+    right: 4vw;
+    width: 150px;
   }
 
-  .manu-img {
-    height: 95px;
+  .manu-img-wrapper {
+    height: 110px;
   }
 
   .right-bottom-dpk {
