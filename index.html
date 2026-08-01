@@ -32,11 +32,11 @@
 
       <nav class="nav-links">
         <a href="#home" class="active">HOME</a>
-        <a href="javascript:void(0)" onclick="openMusicModal('music')">MUSIC</a>
+        <a href="javascript:void(0);" onclick="openMusicModal('music')">MUSIC</a>
         <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank">VIDEOS</a>
-        <a href="javascript:void(0)" onclick="openMusicModal('about')">ABOUT</a>
-        <a href="javascript:void(0)" onclick="openMusicModal('socials')">SOCIALS</a>
-        <a href="javascript:void(0)" onclick="openMusicModal('contact')">CONTACT</a>
+        <a href="javascript:void(0);" onclick="openMusicModal('about')">ABOUT</a>
+        <a href="javascript:void(0);" onclick="openMusicModal('socials')">SOCIALS</a>
+        <a href="javascript:void(0);" onclick="openMusicModal('contact')">CONTACT</a>
       </nav>
     </div>
   </header>
@@ -46,10 +46,12 @@
     <img src="logo.png" alt="Deep Real Stories Golden Logo" class="large-logo-img" />
   </div>
 
-  <!-- Right Top Manu Memorial Card (~220px) -->
+  <!-- Right Top Manu Memorial Card (Positioned Leftwards for Ansuna Sandesh & Tree Light) -->
   <div class="right-top-manu">
     <div class="manu-card-box">
-      <img src="manu.jpg" alt="In Memory of Manu" class="manu-img" />
+      <div class="manu-img-wrapper">
+        <img src="manu.jpg" alt="In Memory of Manu" class="manu-img" />
+      </div>
       <p class="manu-caption">❤️ In Memory of Manu</p>
     </div>
   </div>
@@ -206,11 +208,11 @@
           </a>
         </div>
 
-        <!-- WHATSAPP QR CODE DISPLAY BOX -->
+        <!-- WHATSAPP QR CODE DISPLAY BOX (Exact GitHub Filename Match) -->
         <div class="qr-container-box">
           <div class="qr-card">
             <h4>Scan Code to Chat on WhatsApp</h4>
-            <img src="whatsapp-qr.png" alt="WhatsApp Business QR Code" class="qr-image" onerror="this.style.display='none'" />
+            <img src="Whatsaap.png" alt="WhatsApp Business QR Code" class="qr-image" />
             <p>Deep Real Stories ( एक हकीकत जीवन की )</p>
           </div>
         </div>
@@ -224,6 +226,36 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Inline Script Guaranteeing 100% Functionality -->
+  <script>
+    function openMusicModal(targetSection) {
+      var modal = document.getElementById('masterModal');
+      if(modal) {
+        modal.classList.add('active');
+        if (targetSection) {
+          var targetElement = document.getElementById('modal-' + targetSection);
+          if (targetElement) {
+            setTimeout(function() {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+          }
+        }
+      }
+    }
+
+    function closeMusicModal() {
+      var modal = document.getElementById('masterModal');
+      if(modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    window.onclick = function(event) {
+      var modal = document.getElementById('masterModal');
+      if (event.target === modal) {
+        closeMusicModal();
+      }
+    };
+  </script>
 </body>
 </html>
