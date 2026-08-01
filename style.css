@@ -1,742 +1,522 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* ==========================================================================
+   1. RESET & DESIGN SYSTEM VARIABLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gold-primary: #D4AF37;
+  --gold-light: #F3E5AB;
+  --gold-dark: #8C6D13;
+  --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  --gold-glow-strong: 0 0 25px rgba(212, 175, 55, 0.85), 0 0 45px rgba(212, 175, 55, 0.4);
+  --gold-glow-subtle: 0 0 15px rgba(212, 175, 55, 0.5);
+  --black-base: #050505;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-hindi: 'Tiro Devanagari Hindi', serif;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  font-family: var(--font-body);
+  background-color: var(--black-base);
+  color: #FFFFFF;
+  overflow: hidden; /* Desktop view fix for exact viewport fitting */
+}
+
+/* ==========================================================================
+   2. FULLSCREEN BACKGROUND (100% COVERAGE, NO CROP)
+   ========================================================================== */
+.bg-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #000;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bg-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.75) 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   3. STICKY GLASS NAVBAR
+   ========================================================================== */
+.glass-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  background: rgba(5, 5, 5, 0.65);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0.8rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+}
+
+.nav-logo-tiny {
+  height: 42px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+.nav-brand-text {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
-body{
-
-font-family:'Poppins',sans-serif;
-background:#000;
-color:#fff;
-overflow-x:hidden;
-
-}
-
-a{
-text-decoration:none;
-}
-
-img{
-display:block;
-max-width:100%;
-}
-
-header{
-
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:90px;
-
-padding:0 45px;
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-
-background:rgba(0,0,0,.65);
-backdrop-filter:blur(12px);
-
-z-index:999;
-
-border-bottom:1px solid rgba(212,175,55,.25);
-
-}
-
-.brand{
-
-display:flex;
-align-items:center;
-gap:15px;
-
-}
-
-.brand-logo{
-
-width:70px;
-height:70px;
-object-fit:contain;
-
-}
-
-.brand-text h2{
-
-font-family:'Cinzel',serif;
-font-size:30px;
-color:#D4AF37;
-
-}
-
-.brand-text p{
-
-font-size:14px;
-color:#eee;
-
-}
-
-nav{
-
-display:flex;
-gap:45px;
-
-}
-
-nav a{
-
-font-size:18px;
-font-weight:600;
-color:white;
-transition:.35s;
-
-}
-
-nav a:hover,
-nav a.active{
-
-color:#D4AF37;
-
-}
-
-.hero{
-
-position:relative;
-
-height:100vh;
-
-background:url("background.jpg") center center/cover no-repeat;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-padding-top:90px;
-
-overflow:hidden;
-
-}
-
-.overlay{
-
-position:absolute;
-inset:0;
-
-background:rgba(0,0,0,.38);
-
-}
-
-.hero-content{
-
-position:relative;
-
-z-index:5;
-
-text-align:center;
-
-max-width:760px;
-
-}
-
-.hero-content h1{
-
-font-family:'Cinzel',serif;
-
-font-size:95px;
-
-line-height:1;
-
-color:#D4AF37;
-
-text-shadow:0 0 30px rgba(212,175,55,.7);
-
-}
-
-.hero-content h2{
-
-margin-top:18px;
-
-font-size:55px;
-
-color:#D4AF37;
-
-font-weight:600;
-
-}
-
-.hero-content p{
-
-margin-top:35px;
-
-font-size:28px;
-
-}
-
-.hero-content h3{
-
-margin-top:12px;
-
-font-size:62px;
-
-font-family:'Cinzel',serif;
-
-color:#D4AF37;
-
-}
-
-.hero-content h4{
-
-font-size:45px;
-
-font-style:italic;
-
-font-weight:300;
-
-color:#fff;
-
-margin-top:5px;
-
-}
-/* ===========================
-   LEFT LOGO
-=========================== */
-
-.left-logo{
-
-position:absolute;
-
-left:45px;
-
-top:150px;
-
-width:300px;
-
-z-index:20;
-
-}
-
-.left-logo img{
-
-width:100%;
-
-background:transparent !important;
-
-border:none;
-
-box-shadow:0 0 40px rgba(212,175,55,.35);
-
-border-radius:18px;
-
-}
-
-
-
-/* ===========================
-   RIGHT DPK PHOTO
-=========================== */
-
-.right-photo{
-
-position:absolute;
-
-right:55px;
-
-bottom:40px;
-
-width:320px;
-
-z-index:20;
-
-}
-
-.right-photo img{
-
-width:100%;
-
-background:transparent !important;
-
-border:none;
-
-filter:drop-shadow(0 0 25px rgba(212,175,55,.55));
-
-}
-
-
-
-/* ===========================
-   MANU PHOTO
-=========================== */
-
-.manu-photo{
-
-position:absolute;
-
-top:120px;
-
-right:65px;
-
-width:165px;
-
-z-index:25;
-
-}
-
-.manu-photo img{
-
-width:100%;
-
-border-radius:18px;
-
-box-shadow:0 0 25px rgba(255,210,90,.55);
-
-transition:.35s;
-
-}
-
-.manu-photo img:hover{
-
-transform:scale(1.05);
-
-}
-
-
-
-/* ===========================
-   HERO BUTTON
-=========================== */
-
-.hero-btn{
-
-display:inline-block;
-
-margin-top:45px;
-
-padding:20px 70px;
-
-font-size:28px;
-
-font-weight:700;
-
-color:#000;
-
-background:#D4AF37;
-
-border-radius:60px;
-
-box-shadow:0 0 25px rgba(212,175,55,.55);
-
-transition:.35s;
-
-}
-
-.hero-btn:hover{
-
-transform:translateY(-4px);
-
-box-shadow:0 0 40px rgba(212,175,55,.9);
-
-background:#ffd45c;
-
-}
-
-
-
-/* ===========================
-   REMOVE BLACK BG
-=========================== */
-
-.left-logo img,
-.right-photo img,
-.manu-photo img{
-
-mix-blend-mode:screen;
-
-}
-/* ===========================
-   RESPONSIVE DESKTOP
-=========================== */
-
-@media (max-width:1400px){
-
-.hero-content h1{
-font-size:80px;
-}
-
-.hero-content h2{
-font-size:45px;
-}
-
-.left-logo{
-width:250px;
-left:30px;
-}
-
-.right-photo{
-width:280px;
-right:30px;
-}
-
-.manu-photo{
-width:145px;
-right:40px;
-}
-
-}
-
-
-/* ===========================
-   TABLET
-=========================== */
-
-@media (max-width:991px){
-
-header{
-
-padding:0 20px;
-height:80px;
-
-}
-
-.brand-text h2{
-font-size:24px;
-}
-
-nav{
-
-gap:20px;
-
-}
-
-.hero{
-
-padding-top:80px;
-
-}
-
-.hero-content h1{
-
-font-size:60px;
-
-}
-
-.hero-content h2{
-
-font-size:34px;
-
-}
-
-.hero-content h3{
-
-font-size:44px;
-
-}
-
-.hero-content h4{
-
-font-size:30px;
-
-}
-
-.left-logo{
-
-width:170px;
-left:20px;
-top:120px;
-
-}
-
-.right-photo{
-
-width:200px;
-right:20px;
-bottom:20px;
-
-}
-
-.manu-photo{
-
-width:110px;
-top:95px;
-right:20px;
-
-}
-
-.hero-btn{
-
-padding:16px 45px;
-font-size:20px;
-
-}
-
-}
-
-
-/* ===========================
-   MOBILE
-=========================== */
-
-@media (max-width:768px){
-
-header{
-
-flex-direction:column;
-height:auto;
-padding:15px;
-
-}
-
-nav{
-
-margin-top:10px;
-flex-wrap:wrap;
-justify-content:center;
-
-}
-
-.hero{
-
-padding:130px 20px 60px;
-
-}
-
-.hero-content{
-
-max-width:100%;
-
-}
-
-.hero-content h1{
-
-font-size:42px;
-
-}
-
-.hero-content h2{
-
-font-size:26px;
-
-}
-
-.hero-content p{
-
-font-size:18px;
-
-}
-
-.hero-content h3{
-
-font-size:30px;
-
-}
-
-.hero-content h4{
-
-font-size:22px;
-
-}
-
-.left-logo{
-
-position:relative;
-
-left:auto;
-top:auto;
-
-margin:0 auto 20px;
-
-width:170px;
-
-}
-
-.right-photo{
-
-position:relative;
-
-right:auto;
-bottom:auto;
-
-margin:25px auto 0;
-
-width:190px;
-
-}
-
-.manu-photo{
-
-position:absolute;
-
-top:95px;
-right:12px;
-
-width:80px;
-
-}
-
-.hero-btn{
-
-padding:14px 35px;
-
-font-size:18px;
-
-}
-
-}
-/* ==========================================
-   FINAL ANIMATION & POLISH
-========================================== */
-
-@keyframes floatLogo{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-10px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-.left-logo img,
-.right-photo img,
-.manu-photo img{
-
-animation:floatLogo 4s ease-in-out infinite;
-
-}
-
-
-
-/* GOLD GLOW */
-
-.left-logo img:hover,
-.right-photo img:hover,
-.manu-photo img:hover{
-
-transform:scale(1.05);
-
-filter:
-drop-shadow(0 0 15px #d4af37)
-drop-shadow(0 0 30px #d4af37);
-
-transition:.4s;
-
-}
-
-
-
-/* TEXT GLOW */
-
-.hero-content h1,
-.hero-content h2,
-.hero-content h3{
-
-text-shadow:
-
-0 0 10px rgba(212,175,55,.35),
-
-0 0 25px rgba(212,175,55,.25);
-
-}
-
-
-
-/* BUTTON */
-
-.hero-btn{
-
-transition:.35s;
-
-}
-
-.hero-btn:hover{
-
-transform:translateY(-5px);
-
-box-shadow:
-
-0 0 20px #d4af37,
-
-0 0 45px rgba(212,175,55,.7);
-
-}
-
-
-
-/* FOOTER */
-
-footer{
-
-padding:25px;
-
-background:#050505;
-
-text-align:center;
-
-border-top:1px solid rgba(212,175,55,.2);
-
-}
-
-footer p{
-
-color:#aaa;
-
-font-size:15px;
-
-letter-spacing:1px;
-
-}
-
-footer span{
-
-color:#D4AF37;
-
-font-weight:700;
-
-}
-
-
-
-/* EXTRA */
-
-::selection{
-
-background:#d4af37;
-
-color:#000;
-
-}
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#111;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:#d4af37;
-
-border-radius:50px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-background:#f3cd58;
+.nav-item {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
 
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--gold-gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--gold-light);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+/* Mobile Hamburger Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-toggle .bar {
+  width: 25px;
+  height: 2px;
+  background-color: var(--gold-primary);
+  transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   4. HERO STAGE GRID (25% - 50% - 25% LAYOUT)
+   ========================================================================== */
+.hero-stage {
+  position: relative;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  padding-top: 70px; /* Space for Navbar */
+}
+
+.hero-grid {
+  max-width: 1440px;
+  height: calc(100vh - 70px);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  align-items: center;
+}
+
+/* --- LEFT COLUMN (25%): Transparent Large Logo --- */
+.grid-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.floating-logo-wrapper {
+  animation: floatSoft 4s ease-in-out infinite alternate;
+}
+
+.hero-logo-large {
+  width: 100%;
+  max-width: 240px; /* Exactly ~240px as per requirements */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+  transition: transform 0.4s ease;
+}
+
+.hero-logo-large:hover {
+  transform: scale(1.05);
+}
+
+@keyframes floatSoft {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+/* --- CENTER COLUMN (50%): Golden Typography & Buttons --- */
+.grid-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.main-title {
+  font-family: var(--font-heading);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.08;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.9);
+}
+
+.tagline-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  color: var(--gold-primary);
+}
+
+.hindi-tagline {
+  font-family: var(--font-hindi);
+  font-size: 1.9rem;
+  color: var(--gold-light);
+  font-weight: 500;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.gold-wing-left,
+.gold-wing-right {
+  font-size: 1.2rem;
+}
+
+.website-meta {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 1.4rem;
+}
+
+.artist-name {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 0.2rem;
+}
+
+.artist-alias {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  color: var(--gold-light);
+  font-style: italic;
+  font-weight: 500;
+  margin-top: -0.2rem;
+}
+
+/* BUTTONS */
+.cta-button-group {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-gold-glow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #000000;
+  background: var(--gold-gradient);
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: var(--gold-glow-strong);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-gold-glow:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 35px rgba(212, 175, 55, 1), 0 0 55px rgba(212, 175, 55, 0.6);
+}
+
+.btn-gold-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+  background: rgba(10, 10, 10, 0.6);
+  border: 1px solid var(--gold-primary);
+  border-radius: 50px;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.btn-gold-outline:hover {
+  background: rgba(212, 175, 55, 0.2);
+  color: var(--gold-light);
+  box-shadow: var(--gold-glow-subtle);
+  transform: translateY(-3px);
+}
+
+.btn-icon {
+  font-size: 1rem;
+}
+
+/* --- RIGHT COLUMN (25%): Manu Card & Dpk Cutout --- */
+.grid-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+/* RIGHT TOP: Manu Memorial Card */
+.manu-memorial-card {
+  align-self: flex-end;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--gold-primary);
+  border-radius: 14px;
+  padding: 0.6rem;
+  width: 170px;
+  text-align: center;
+  box-shadow: var(--gold-glow-subtle);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.manu-memorial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--gold-glow-strong);
+}
+
+.manu-img-frame {
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.manu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.manu-caption {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-top: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* RIGHT BOTTOM: Dpk Profile Cutout */
+.dpk-portrait-container {
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}
+
+.dpk-portrait-img {
+  width: 250px; /* Precise proportion so it doesn't cover the background lamp */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.95));
+  transition: transform 0.4s ease;
+}
+
+.dpk-portrait-img:hover {
+  transform: scale(1.03) translateY(-3px);
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN (TABLETS & MOBILE)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  html, body {
+    overflow-y: auto; /* Allow scrolling on smaller viewports */
+  }
+
+  .hero-stage {
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+  }
+
+  .hero-grid {
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 2rem;
+  }
+
+  .grid-left, .grid-center, .grid-right {
+    width: 100%;
+  }
+
+  .hero-logo-large {
+    max-width: 180px;
+  }
+
+  .main-title {
+    font-size: 2.6rem;
+  }
+
+  .hindi-tagline {
+    font-size: 1.5rem;
+  }
+
+  .artist-name {
+    font-size: 1.8rem;
+  }
+
+  .grid-right {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .manu-memorial-card {
+    align-self: center;
+    width: 200px;
+  }
+
+  .dpk-portrait-container {
+    align-self: center;
+  }
+
+  .dpk-portrait-img {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .mobile-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    clip-path: circle(0% at 100% 0);
+    transition: clip-path 0.4s ease-in-out;
+  }
+
+  .nav-links.open {
+    clip-path: circle(140% at 100% 0);
+  }
+
+  .main-title {
+    font-size: 2.1rem;
+  }
+
+  .cta-button-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .btn-gold-glow,
+  .btn-gold-outline {
+    width: 100%;
+    justify-content: center;
+  }
 }
