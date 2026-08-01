@@ -3,48 +3,146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deep Chaudhary (Dabba Bhai) | Deep Real Stories</title>
+  <title>Deep Real Stories | Official Website of Deep Chaudhary (Dabba Bhai)</title>
   
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Fullscreen Main Background (100% Viewport) -->
-  <div class="bg-layer">
-    <img src="background.jpg" alt="Background" class="bg-img" />
+  <!-- Fullscreen Landscape Background -->
+  <div class="bg-wrapper">
+    <img src="background.jpg" alt="Deep Real Stories Background" class="bg-image" />
+    <div class="bg-overlay"></div>
   </div>
 
-  <!-- Header Section -->
-  <header class="top-header">
-    
-    <!-- Top Left: Logo (15% Size) -->
-    <div class="logo-box">
-      <img src="logo.png" alt="Logo" class="small-logo" />
+  <!-- Top Navigation Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      
+      <!-- Top Left Brand Logo -->
+      <a href="#home" class="nav-brand">
+        <img src="logo.png" alt="Logo" class="brand-icon" />
+        <div class="brand-text">
+          <span class="brand-title">Deep Real Stories</span>
+          <span class="brand-subtitle">एक हकीकत जीवन की</span>
+        </div>
+      </a>
+
+      <!-- Top Right Menu Links -->
+      <nav class="nav-links" id="nav-links">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#music" class="nav-item">Music</a>
+        <a href="#youtube" class="nav-item">YouTube</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </nav>
+
+      <!-- Mobile Toggle Button -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
-
-    <!-- Center Navigation Links -->
-    <nav class="center-nav">
-      <a href="#home" class="nav-item active">HOME</a>
-      <a href="#music" class="nav-item">MUSIC</a>
-      <a href="#youtube" class="nav-item">YOUTUBE</a>
-      <a href="#contact" class="nav-item">CONTACT</a>
-    </nav>
-
-    <!-- Top Right: Photo Badge (20% Size) -->
-    <div class="profile-box">
-      <img src="Dpk.png" alt="Deep Chaudhary" class="small-profile" />
-    </div>
-
   </header>
 
-  <!-- Invisible Overlay Area for Button Click -->
-  <main class="content-area">
-    <a href="#music" class="explore-btn">EXPLORE MUSIC</a>
+  <!-- Hero Main Layout Area -->
+  <main class="hero-section" id="home">
+    <div class="hero-container">
+
+      <!-- Left Side Badge Logo -->
+      <div class="hero-left">
+        <img src="logo.png" alt="Deep Real Stories Badge" class="left-badge-img" />
+      </div>
+
+      <!-- Center Hero Typography & Button -->
+      <div class="hero-center">
+        <h1 class="main-title">Deep<br>Real Stories</h1>
+        
+        <div class="hindi-tagline-wrapper">
+          <span class="gold-arrow-left">⤝</span>
+          <p class="hindi-tagline">एक हकीकत जीवन की</p>
+          <span class="gold-arrow-right">⤞</span>
+        </div>
+
+        <p class="website-of-lead">Official Website of</p>
+        <h2 class="artist-title">Deep Chaudhary</h2>
+        <p class="artist-alias">(Dabba Bhai)</p>
+
+        <div class="cta-box">
+          <a href="#music" class="gold-glow-btn">EXPLORE MUSIC 🎵</a>
+        </div>
+      </div>
+
+      <!-- Right Side Dpk Photo Cutout -->
+      <div class="hero-right">
+        <img src="Dpk.png" alt="Deep Chaudhary" class="right-artist-img" />
+      </div>
+
+    </div>
   </main>
+
+  <!-- Bottom Feature Bar -->
+  <footer class="bottom-bar">
+    <div class="bar-container">
+      
+      <div class="bar-item">
+        <div class="bar-icon">🎵</div>
+        <div class="bar-info">
+          <h4>ORIGINAL MUSIC</h4>
+          <p>Feel the Real Stories</p>
+        </div>
+      </div>
+
+      <div class="bar-item">
+        <div class="bar-icon">▶</div>
+        <div class="bar-info">
+          <h4>YOUTUBE CHANNEL</h4>
+          <p>Deep Real Stories</p>
+        </div>
+      </div>
+
+      <div class="bar-item">
+        <div class="bar-icon">🎧</div>
+        <div class="bar-info">
+          <h4>AVAILABLE EVERYWHERE</h4>
+          <p>Spotify, Apple Music & More</p>
+        </div>
+      </div>
+
+      <div class="bar-item">
+        <div class="bar-icon">👥</div>
+        <div class="bar-info">
+          <h4>CONNECT WITH US</h4>
+          <p>Stay Tuned for More</p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Mobile Menu JS -->
+  <script>
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-item').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileToggle.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
 
 </body>
 </html>
