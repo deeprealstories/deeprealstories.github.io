@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deep Chaudhary (Dabba Bhai) | Deep Real Stories Official</title>
+  <title>Deep Chaudhary (Dabba Bhai) | Deep Real Stories</title>
   
-  <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
@@ -16,23 +15,16 @@
 
   <!-- Fullscreen Main Background Image -->
   <div class="bg-wrapper">
-    <img src="background.jpg" alt="Deep Real Stories Background" class="main-bg-img" />
+    <img src="background.jpg" alt="Background" class="main-bg-img" />
   </div>
 
-  <!-- Premium Top Navigation Bar -->
+  <!-- Header Section -->
   <header class="navbar">
     <div class="nav-container">
-      
-      <!-- Top Left Logo -->
       <a href="#home" class="brand-logo">
-        <img src="logo.png" alt="Deep Real Stories Logo" class="nav-logo-img" />
-        <div class="brand-text">
-          <span class="brand-name">Deep Real Stories</span>
-          <span class="brand-sub">एक हकीकत जीवन की</span>
-        </div>
+        <img src="logo.png" alt="Logo" class="nav-logo-img" />
       </a>
 
-      <!-- Navigation Links -->
       <nav class="nav-menu" id="nav-menu">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#music" class="nav-link">Music</a>
@@ -40,36 +32,31 @@
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Mobile Hamburger Toggle -->
       <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
         <span></span>
         <span></span>
         <span></span>
       </button>
-
     </div>
   </header>
 
-  <!-- Hero Interactive Area -->
-  <section class="hero-section" id="home">
-    <div class="hero-layout">
-
-      <!-- Center CTA Click Zone overlaying image button -->
-      <div class="center-cta-box">
+  <!-- Hero Layout -->
+  <main class="hero-section" id="home">
+    <div class="hero-container">
+      
+      <!-- Center Button overlay -->
+      <div class="center-cta">
         <a href="#music" class="gold-action-btn">Explore Music</a>
       </div>
 
-      <!-- Right Side Visual Overlay (Dpk.png Showcase) -->
-      <div class="right-artist-badge">
-        <div class="frame-glow">
-          <img src="Dpk.png" alt="Deep Chaudhary (Dabba Bhai)" class="dpk-portrait" />
-        </div>
+      <!-- Right Side Profile Overlay -->
+      <div class="right-profile">
+        <img src="Dpk.png" alt="Deep Chaudhary" class="dpk-img" />
       </div>
 
     </div>
-  </section>
+  </main>
 
-  <!-- Mobile Nav Script -->
   <script>
     const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
@@ -77,13 +64,6 @@
     mobileToggle.addEventListener('click', () => {
       mobileToggle.classList.toggle('active');
       navMenu.classList.toggle('open');
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileToggle.classList.remove('active');
-        navMenu.classList.remove('open');
-      });
     });
   </script>
 </body>
