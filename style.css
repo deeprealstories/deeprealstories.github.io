@@ -1,5 +1,5 @@
 /* ==========================================================================
-   RESET & COLOR THEME
+   RESET & CORE VARIABLES
    ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -8,26 +8,22 @@
 }
 
 :root {
-  --gold-primary: #D4AF37;
-  --gold-light: #F3E5AB;
   --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
-  --gold-glow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 35px rgba(212, 175, 55, 0.4);
-  --font-heading: 'Cinzel', serif;
+  --gold-glow: 0 0 22px rgba(212, 175, 55, 0.85), 0 0 40px rgba(212, 175, 55, 0.4);
   --font-body: 'Montserrat', sans-serif;
-  --font-hindi: 'Tiro Devanagari Hindi', serif;
 }
 
 html, body {
   width: 100vw;
   height: 100vh;
   font-family: var(--font-body);
-  background-color: #000;
-  color: #fff;
-  overflow-x: hidden;
+  background-color: #000000;
+  color: #ffffff;
+  overflow: hidden; /* Prevent scrollbar clipping */
 }
 
 /* ==========================================================================
-   100% FULLSCREEN BACKGROUND
+   100% FULLSCREEN BACKGROUND (NO CROPPING)
    ========================================================================== */
 .bg-wrapper {
   position: fixed;
@@ -35,7 +31,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: 1;
   background-color: #000;
 }
 
@@ -46,87 +42,36 @@ html, body {
   object-position: center;
 }
 
-.bg-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 100%);
-}
-
 /* ==========================================================================
-   NAVBAR (TOP)
+   TOP NAVIGATION MENU
    ========================================================================== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-}
-
-.nav-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0.6rem 2rem;
+  padding: 1.2rem 0;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  text-decoration: none;
-}
-
-.brand-icon {
-  height: 48px;
-  width: auto;
-  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.5));
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 1px;
-}
-
-.brand-subtitle {
-  font-family: var(--font-hindi);
-  font-size: 0.75rem;
-  color: var(--gold-light);
+  background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
 }
 
 .nav-links {
   display: flex;
-  gap: 2.2rem;
+  gap: 3rem;
 }
 
 .nav-item {
-  color: #ffffff;
+  color: #FFFFFF;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
   position: relative;
   padding-bottom: 4px;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .nav-item::after {
@@ -142,7 +87,8 @@ html, body {
 
 .nav-item:hover,
 .nav-item.active {
-  color: var(--gold-light);
+  color: #F3E5AB;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 1);
 }
 
 .nav-item:hover::after,
@@ -151,123 +97,73 @@ html, body {
 }
 
 /* ==========================================================================
-   HERO LAYOUT (LEFT LOGO, CENTER TEXT, RIGHT DPK PHOTO)
+   LEFT LOGO OVERLAY (Positioned near standing figure on left mountain)
    ========================================================================== */
-.hero-section {
-  min-height: 100vh;
+.left-logo-overlay {
+  position: fixed;
+  top: 18vh;
+  left: 3.5vw;
+  z-index: 20;
+  width: 16vw;
+  max-width: 220px;
+  min-width: 130px;
+}
+
+.left-logo-img {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 2rem 5rem 2rem;
-}
-
-.hero-container {
-  max-width: 1400px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-/* Left Badge Logo */
-.hero-left {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.left-badge-img {
-  width: 280px;
-  max-width: 100%;
   height: auto;
-  filter: drop-shadow(0 0 25px rgba(212, 175, 55, 0.4));
-  transition: transform 0.4s ease;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.7));
+  transition: transform 0.3s ease;
 }
 
-.left-badge-img:hover {
-  transform: scale(1.03);
+.left-logo-img:hover {
+  transform: scale(1.05);
 }
 
-/* Center Text & Button */
-.hero-center {
-  flex: 1.5;
-  text-align: center;
+/* ==========================================================================
+   RIGHT PHOTO BADGE OVERLAY (Bottom Right Corner + 5% Enlarged)
+   ========================================================================== */
+.right-photo-overlay {
+  position: fixed;
+  bottom: 3.5vh;
+  right: 3vw;
+  z-index: 20;
+  width: 21vw; /* 5% larger proportion */
+  max-width: 270px;
+  min-width: 150px;
+}
+
+.right-photo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+  transition: transform 0.3s ease;
+}
+
+.right-photo-img:hover {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   BOTTOM CENTER EXPLORE MUSIC BUTTON
+   ========================================================================== */
+.cta-overlay-area {
+  position: fixed;
+  bottom: 5vh;
+  left: 0;
+  width: 100vw;
+  z-index: 30;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.main-title {
-  font-family: var(--font-heading);
-  font-size: 3.2rem;
-  font-weight: 800;
-  line-height: 1.1;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 5px 15px rgba(0,0,0,0.8);
-}
-
-.hindi-tagline-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 0.8rem;
-  color: var(--gold-primary);
-}
-
-.hindi-tagline {
-  font-family: var(--font-hindi);
-  font-size: 1.8rem;
-  color: var(--gold-light);
-  font-weight: 500;
-}
-
-.gold-arrow-left,
-.gold-arrow-right {
-  font-size: 1.2rem;
-}
-
-.website-of-lead {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.8);
-  margin-top: 1.5rem;
-}
-
-.artist-title {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  font-weight: 700;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 0.2rem;
-}
-
-.artist-alias {
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  color: var(--gold-light);
-  font-style: italic;
-  font-weight: 500;
-  margin-top: -0.2rem;
-}
-
-/* Gold Glowing Explore Music Button */
-.cta-box {
-  margin-top: 1.8rem;
-}
-
-.gold-glow-btn {
+.explore-btn {
   display: inline-block;
-  padding: 0.9rem 2.8rem;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
+  padding: 1.1rem 3.4rem;
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: 2.5px;
   color: #000000;
@@ -278,195 +174,42 @@ html, body {
   transition: all 0.3s ease;
 }
 
-.gold-glow-btn:hover {
+.explore-btn:hover {
   transform: translateY(-3px) scale(1.04);
   box-shadow: 0 0 35px rgba(212, 175, 55, 1), 0 0 60px rgba(212, 175, 55, 0.6);
 }
 
-/* Right Side Cutout Image */
-.hero-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.right-artist-img {
-  width: 320px;
-  max-width: 100%;
-  height: auto;
-  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.9));
-  transition: transform 0.4s ease;
-}
-
-.right-artist-img:hover {
-  transform: translateY(-5px);
-}
-
 /* ==========================================================================
-   BOTTOM FEATURE BAR
+   RESPONSIVE LAYOUT FOR MOBILE & TABLETS
    ========================================================================== */
-.bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 90;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.bar-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0.8rem 2rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-
-.bar-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.2rem 0.5rem;
-  border-right: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.bar-item:last-child {
-  border-right: none;
-}
-
-.bar-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid var(--gold-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold-light);
-  font-size: 1.1rem;
-}
-
-.bar-info h4 {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--gold-light);
-}
-
-.bar-info p {
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 2px;
-}
-
-/* ==========================================================================
-   RESPONSIVE DESIGN (MOBILE & TABLETS)
-   ========================================================================== */
-.mobile-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.mobile-toggle span {
-  width: 24px;
-  height: 2px;
-  background-color: var(--gold-primary);
-  transition: all 0.3s ease;
-}
-
-@media (max-width: 1024px) {
-  .hero-container {
-    flex-direction: column;
-    justify-content: center;
-    padding-top: 4rem;
-    padding-bottom: 6rem;
-  }
-
-  .hero-left, .hero-right {
-    justify-content: center;
-  }
-
-  .left-badge-img {
-    width: 180px;
-  }
-
-  .right-artist-img {
-    width: 220px;
-  }
-
-  .main-title {
-    font-size: 2.4rem;
-  }
-
-  .hindi-tagline {
-    font-size: 1.4rem;
-  }
-
-  .artist-title {
-    font-size: 1.8rem;
-  }
-
-  .bar-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .bar-item:nth-child(2) {
-    border-right: none;
-  }
-}
-
 @media (max-width: 768px) {
-  .mobile-toggle {
-    display: flex;
-  }
-
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(5, 5, 5, 0.95);
-    backdrop-filter: blur(20px);
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 0;
     gap: 1.2rem;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    clip-path: circle(0% at 100% 0);
-    transition: clip-path 0.4s ease-in-out;
   }
 
-  .nav-links.open {
-    clip-path: circle(140% at 100% 0);
+  .nav-item {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
   }
 
-  .main-title {
-    font-size: 2rem;
+  .left-logo-overlay {
+    top: 12vh;
+    left: 2vw;
+    width: 28vw;
   }
 
-  .bar-container {
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
+  .right-photo-overlay {
+    bottom: 2vh;
+    right: 2vw;
+    width: 32vw;
   }
 
-  .bar-item {
-    border-right: none;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-    padding-bottom: 0.5rem;
+  .cta-overlay-area {
+    bottom: 3vh;
   }
 
-  .bar-item:last-child {
-    border-bottom: none;
+  .explore-btn {
+    padding: 0.8rem 2.2rem;
+    font-size: 0.82rem;
   }
 }
