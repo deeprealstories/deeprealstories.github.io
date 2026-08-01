@@ -9,7 +9,7 @@
   --gold-light: #F3E5AB;
   --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
   --gold-glow: 0 0 25px rgba(212, 175, 55, 0.85);
-  --gold-glow-strong: 0 0 35px rgba(212, 175, 55, 1), 0 0 50px rgba(212, 175, 55, 0.5);
+  --gold-glow-strong: 0 0 35px rgba(212, 175, 55, 1), 0 0 50px rgba(212, 175, 55, 0.6);
   --font-body: 'Montserrat', sans-serif;
   --font-heading: 'Cinzel', serif;
   --font-hindi: 'Tiro Devanagari Hindi', serif;
@@ -161,7 +161,8 @@ html, body {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  gap: 1.8rem;
 }
 
 .nav-links a {
@@ -180,22 +181,41 @@ html, body {
   text-shadow: 0 0 10px rgba(212, 175, 55, 1);
 }
 
-/* LEFT SIDE LOGO */
+/* STREAM NOW NAVBAR BUTTON */
+.nav-stream-btn {
+  background: var(--gold-gradient);
+  color: #000000 !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 30px;
+  font-size: 0.8rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nav-stream-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 1);
+  text-shadow: none !important;
+}
+
+/* 1. LEFT SIDE LOGO (10-15% LARGER ~230px) */
 .left-logo-hero {
   position: absolute;
   top: 13vh;
-  left: 3.5vw;
+  left: 3vw;
   z-index: 50;
-  width: 16vw;
-  max-width: 200px;
-  min-width: 140px;
+  width: 18vw;
+  max-width: 230px; /* Increased logo size */
+  min-width: 150px;
 }
 
 .large-logo-img {
   width: 100%;
   height: auto;
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.7);
   transition: transform 0.3s ease;
 }
 
@@ -203,24 +223,24 @@ html, body {
   transform: scale(1.05);
 }
 
-/* RIGHT TOP MANU CARD */
+/* 2. RIGHT TOP MANU CARD (+20px Width, Soft Glow, Shifted Rightwards) */
 .right-top-manu {
   position: absolute;
   top: 75px;
-  right: 12vw;
+  right: 8vw; /* Shifted slightly right so "Stories" S is 100% uncovered */
   z-index: 50;
-  width: 22vw;
-  max-width: 260px;
-  min-width: 160px;
+  width: 24vw;
+  max-width: 280px; /* Increased card width by +20px */
+  min-width: 170px;
 }
 
 .manu-card-box {
   background: rgba(10, 10, 10, 0.92);
-  border: 1.5px solid var(--gold-primary);
+  border: 1px solid var(--gold-primary);
   border-radius: 14px;
   padding: 8px;
   text-align: center;
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.9);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6); /* Soft Glow */
 }
 
 .manu-img-wrapper {
@@ -244,18 +264,19 @@ html, body {
 }
 
 .manu-caption {
-  font-size: 0.85rem;
-  font-weight: 800;
+  font-size: 0.88rem;
+  font-weight: 800; /* Center & Bold */
   color: var(--gold-light);
   margin-top: 6px;
+  text-align: center;
   text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
-/* RIGHT BOTTOM DPK PORTRAIT */
+/* 3. RIGHT BOTTOM DPK PORTRAIT (Shifted slightly upward to avoid crowd) */
 .right-bottom-dpk {
   position: absolute;
-  bottom: 1.5vh;
-  right: 1vw;
+  bottom: 4vh; /* Shifted slightly upward */
+  right: 1.5vw;
   z-index: 50;
   width: 14vw;
   max-width: 180px;
@@ -270,7 +291,7 @@ html, body {
   transition: transform 0.3s ease;
 }
 
-/* EXPLORE MUSIC BUTTON OVERLAY */
+/* 4 & 5. EXPLORE MUSIC BUTTON WITH HOVER SCALE(1.05) & SHINE GLOW */
 .cta-hotspot-area {
   position: absolute;
   bottom: 2.8vh;
@@ -294,39 +315,8 @@ html, body {
 }
 
 .gold-explore-btn:hover {
-  transform: scale(1.08);
-  box-shadow: var(--gold-glow-strong);
-}
-
-/* FLOATING QUICK LINKS */
-.floating-quick-links {
-  position: fixed;
-  bottom: 25px;
-  right: 20px;
-  z-index: 150;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.float-btn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--gold-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 1.2rem;
-  box-shadow: var(--gold-glow);
-  transition: transform 0.3s, background 0.3s;
-}
-
-.float-btn:hover {
-  transform: scale(1.15) translateY(-3px);
-  background: var(--gold-primary);
+  transform: scale(1.05); /* Hover Scale 1.05 */
+  box-shadow: var(--gold-glow-strong); /* Gold Shine Glow */
 }
 
 /* MASTER POPUP MODAL & SECTIONS */
@@ -618,7 +608,7 @@ html, body {
   }
 
   .right-bottom-dpk {
-    bottom: 1vh;
+    bottom: 2vh;
     right: 0.5vw;
     width: 28vw;
   }
@@ -632,14 +622,7 @@ html, body {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .floating-quick-links {
-    bottom: 15px;
-    right: 12px;
-  }
-
-  .float-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1rem;
+  .nav-stream-btn {
+    display: none;
   }
 }
