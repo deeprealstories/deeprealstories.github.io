@@ -3,69 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deep Real Stories ( एक हकीकत जीवन की ) | Official Website</title>
+  <title>Deep Real Stories ( एक हकीकत जीवन की ) | Official Website of Deep Chaudhary (Dabba Bhai)</title>
   
+  <meta name="description" content="Deep Real Stories - Official Website of Deep Chaudhary (Dabba Bhai). Independent Music, Emotional Storytelling & Audio Cinema." />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Fullscreen Clean Background -->
+  <!-- Fullscreen Cover Background Stage -->
   <div class="bg-stage">
     <img src="background.jpg" alt="Deep Real Stories Background" class="bg-img" />
+    <div class="bg-vignette"></div>
   </div>
 
-  <!-- Top Navigation Bar -->
+  <!-- Sticky Glassmorphism Header -->
   <header class="top-nav">
-    <nav class="nav-links">
-      <a href="#home" class="active">HOME</a>
-      <a href="javascript:void(0)" onclick="openMusicModal()">MUSIC</a>
-      <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank">YOUTUBE</a>
-      <a href="javascript:void(0)" onclick="openMusicModal()">CONTACT</a>
-    </nav>
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">
+        <img src="logo.png" alt="Logo" class="nav-brand-logo" />
+        <span class="nav-brand-title">Deep Real Stories</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home" class="active">HOME</a>
+        <a href="javascript:void(0)" onclick="openMusicModal('music')">MUSIC</a>
+        <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank">VIDEOS</a>
+        <a href="javascript:void(0)" onclick="openMusicModal('about')">ABOUT</a>
+        <a href="javascript:void(0)" onclick="openMusicModal('socials')">SOCIALS</a>
+        <a href="javascript:void(0)" onclick="openMusicModal('contact')">CONTACT</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Left Side Logo Overlay (Above standing figure's head) -->
-  <div class="left-logo-above-head">
-    <img src="logo.png" alt="Deep Real Stories Logo" class="logo-img" />
+  <!-- Left Side Large Logo (~270px) -->
+  <div class="left-logo-hero">
+    <img src="logo.png" alt="Deep Real Stories Golden Logo" class="large-logo-img" />
   </div>
 
-  <!-- Right Top Manu Memorial Card (Enlarged) -->
+  <!-- Right Top Manu Memorial Card (~220px) -->
   <div class="right-top-manu">
-    <div class="manu-card-inner">
+    <div class="manu-card-box">
       <img src="manu.jpg" alt="In Memory of Manu" class="manu-img" />
       <p class="manu-caption">❤️ In Memory of Manu</p>
     </div>
   </div>
 
-  <!-- Right Bottom Dpk Photo Badge -->
+  <!-- Right Bottom Dpk Portrait Badge -->
   <div class="right-bottom-dpk">
     <img src="Dpk.png" alt="Deep Chaudhary (Dabba Bhai)" class="dpk-img" />
   </div>
 
-  <!-- Clickable Overlay Hotspot over background "EXPLORE MUSIC" button -->
+  <!-- Single Hotspot Button Directly Over Poster Button Image -->
   <div class="cta-hotspot-area">
-    <button class="invisible-explore-btn" onclick="openMusicModal()" aria-label="Explore Music">
-      EXPLORE MUSIC 🎵
+    <button class="gold-explore-btn" onclick="openMusicModal('music')" aria-label="Explore Music">
+      🎵 EXPLORE MUSIC
     </button>
   </div>
 
-  <!-- ALL ACTIVE LINKS POPUP MODAL -->
-  <div class="music-modal-overlay" id="musicModal">
+  <!-- MASTER ALL-IN-ONE MODAL POPUP -->
+  <div class="music-modal-overlay" id="masterModal">
     <div class="music-modal-content">
       <button class="close-modal-btn" onclick="closeMusicModal()">&times;</button>
       
+      <!-- Modal Header -->
       <div class="modal-header">
         <h2 class="modal-artist">DEEP CHAUDHARY (DABBA BHAI)</h2>
-        <p class="modal-sub">Deep Real Stories ( एक हकीकत जीवन की )</p>
+        <p class="modal-sub">Deep Real Stories — "एक हकीकत जीवन की"</p>
       </div>
 
-      <!-- STREAMING PLATFORMS -->
-      <div class="links-section">
-        <h3 class="section-title">🎧 LISTEN EVERYWHERE</h3>
+      <!-- 1. LISTEN EVERYWHERE (STREAMING PLATFORMS) -->
+      <section class="links-section" id="modal-music">
+        <h3 class="section-title">🎧 LISTEN MUSIC EVERYWHERE</h3>
         <div class="links-grid">
           <a href="https://open.spotify.com/artist/3ssaaxdzuIw0J0HCczPRwT" target="_blank" class="link-card">🎵 Spotify</a>
           <a href="https://music.apple.com/us/artist/deep-chaudhary-dabba-bhai/6784861666" target="_blank" class="link-card">🍎 Apple Music</a>
@@ -83,18 +97,18 @@
           <a href="https://www.music-flo.com/detail/artist/414478346" target="_blank" class="link-card">🇰🇷 FLO</a>
           <a href="https://songdew.com/Dabba_Bhai_" target="_blank" class="link-card">🎶 Songdew</a>
         </div>
-      </div>
+      </section>
 
-      <!-- OFFICIAL SOCIALS -->
-      <div class="links-section">
-        <h3 class="section-title">🌐 OFFICIAL SOCIALS</h3>
+      <!-- 2. SOCIALS: DEEP REAL STORIES (BRAND) -->
+      <section class="links-section" id="modal-socials">
+        <h3 class="section-title">🌐 DEEP REAL STORIES (OFFICIAL BRAND SOCIALS)</h3>
         <div class="links-grid">
           <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank" class="link-card">▶️ YouTube</a>
           <a href="https://www.instagram.com/deeprealstoriesofficial/" target="_blank" class="link-card">📷 Instagram</a>
           <a href="https://www.facebook.com/deeprealstoriesofficial" target="_blank" class="link-card">📘 Facebook</a>
-          <a href="https://x.com/DeepRealStories" target="_blank" class="link-card">❌ X</a>
+          <a href="https://x.com/DeepRealStories" target="_blank" class="link-card">❌ X (Twitter)</a>
           <a href="https://www.threads.com/@deeprealstories" target="_blank" class="link-card">🧵 Threads</a>
-          <a href="https://t.me/deeprealstories" target="_blank" class="link-card">💬 Telegram</a>
+          <a href="https://t.me/deeprealstories" target="_blank" class="link-card">💬 Telegram Channel</a>
           <a href="https://whatsapp.com/channel/0029VbCe7Mf4SpkNJEBwc42C" target="_blank" class="link-card">🟢 WhatsApp Channel</a>
           <a href="https://www.snapchat.com/add/deeprealstories" target="_blank" class="link-card">👻 Snapchat</a>
           <a href="https://mojapp.in/@deeprealstories" target="_blank" class="link-card">🔥 Moj</a>
@@ -102,28 +116,114 @@
           <a href="https://sharechat.com/profile/deeprealstories" target="_blank" class="link-card">💚 ShareChat</a>
           <a href="https://chingari.io/deeprealstories" target="_blank" class="link-card">🎥 Chingari</a>
         </div>
-      </div>
+      </section>
+
+      <!-- 3. SOCIALS: DEEP CHAUDHARY (ARTIST PERSONAL) -->
+      <section class="links-section">
+        <h3 class="section-title">👤 DEEP CHAUDHARY (ARTIST PERSONAL)</h3>
+        <div class="links-grid">
+          <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank" class="link-card">▶️ YouTube</a>
+          <a href="https://www.instagram.com/deeprealstoriesofficial/" target="_blank" class="link-card">📷 Instagram</a>
+          <a href="https://www.facebook.com/deeprealstoriesofficial" target="_blank" class="link-card">📘 Facebook</a>
+          <a href="https://x.com/DeepRealStories" target="_blank" class="link-card">❌ X</a>
+          <a href="https://www.threads.com/@deeprealstories" target="_blank" class="link-card">🧵 Threads</a>
+          <a href="https://t.me/deeprealstories" target="_blank" class="link-card">💬 Telegram</a>
+          <a href="https://whatsapp.com/channel/0029VbCe7Mf4SpkNJEBwc42C" target="_blank" class="link-card">🟢 WhatsApp</a>
+        </div>
+      </section>
+
+      <!-- 4. SOCIALS: MANU MEMORIAL -->
+      <section class="links-section">
+        <h3 class="section-title">❤️ MANU MEMORIAL TRIBUTES</h3>
+        <div class="links-grid">
+          <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank" class="link-card">▶️ YouTube Tribute</a>
+          <a href="https://www.facebook.com/deeprealstoriesofficial" target="_blank" class="link-card">📘 Facebook Memorial</a>
+          <a href="https://www.instagram.com/deeprealstoriesofficial/" target="_blank" class="link-card">📷 Instagram Memorial</a>
+        </div>
+      </section>
+
+      <!-- 5. ABOUT DEEP REAL STORIES -->
+      <section class="about-card-box" id="modal-about">
+        <h3 class="section-title">🎬 ABOUT DEEP REAL STORIES</h3>
+        <p class="about-text">
+          Deep Real Stories is an independent music and storytelling platform founded by <strong>Deep Chaudhary (Dabba Bhai)</strong>. 
+          Our mission is to transform real-life emotions, struggles, and truth into cinematic songs.
+        </p>
+        <blockquote class="quote-text">"हम गाने नहीं बनाते... हम Audio Cinema बनाते हैं।"</blockquote>
+      </section>
+
+      <!-- 6. VERIFIED OFFICIAL CONTACT & WHATSAPP SECTION -->
+      <section class="contact-section-box" id="modal-contact">
+        <h3 class="section-title">📩 OFFICIAL CONTACT & DIRECT CHAT</h3>
+        
+        <div class="contact-grid">
+          <a href="https://wa.me/919639197198" target="_blank" class="contact-card whatsapp-highlight">
+            <span class="icon">🟢</span>
+            <div class="contact-info">
+              <strong>WhatsApp Business (+91 9639197198)</strong>
+              <span>Message Deep Real Stories Directly</span>
+            </div>
+          </a>
+
+          <a href="mailto:deepstoriesreal@gmail.com" class="contact-card">
+            <span class="icon">📧</span>
+            <div class="contact-info">
+              <strong>Official Support Email</strong>
+              <span>deepstoriesreal@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="mailto:deepchaudharydabbabhai@gmail.com" class="contact-card">
+            <span class="icon">📧</span>
+            <div class="contact-info">
+              <strong>Artist Personal Email</strong>
+              <span>deepchaudharydabbabhai@gmail.com</span>
+            </div>
+          </a>
+
+          <a href="https://t.me/deeprealstories" target="_blank" class="contact-card">
+            <span class="icon">💬</span>
+            <div class="contact-info">
+              <strong>Telegram Channel</strong>
+              <span>@deeprealstories</span>
+            </div>
+          </a>
+
+          <div class="contact-card text-card">
+            <span class="icon">📍</span>
+            <div class="contact-info">
+              <strong>Location</strong>
+              <span>Amroha, Uttar Pradesh, India</span>
+            </div>
+          </div>
+
+          <a href="https://deeprealstories.github.io" class="contact-card">
+            <span class="icon">🌐</span>
+            <div class="contact-info">
+              <strong>Official Website</strong>
+              <span>deeprealstories.github.io</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- WHATSAPP QR CODE DISPLAY BOX -->
+        <div class="qr-container-box">
+          <div class="qr-card">
+            <h4>Scan Code to Chat on WhatsApp</h4>
+            <img src="whatsapp-qr.png" alt="WhatsApp Business QR Code" class="qr-image" onerror="this.style.display='none'" />
+            <p>Deep Real Stories ( एक हकीकत जीवन की )</p>
+          </div>
+        </div>
+      </section>
 
       <div class="modal-footer">
-        <p>❤️ Thanks for Listening & Supporting<br><strong>Deep Chaudhary (Dabba Bhai)</strong> - Deep Real Stories</p>
+        <p>❤️ Thanks for Listening & Supporting<br><strong>Deep Chaudhary (Dabba Bhai)</strong> — Deep Real Stories</p>
+        <p class="copyright-text">© 2026 Deep Real Stories. All Rights Reserved.</p>
       </div>
+
     </div>
   </div>
 
-  <script>
-    function openMusicModal() {
-      document.getElementById('musicModal').classList.add('active');
-    }
-    function closeMusicModal() {
-      document.getElementById('musicModal').classList.remove('active');
-    }
-    window.onclick = function(event) {
-      const modal = document.getElementById('musicModal');
-      if (event.target === modal) {
-        closeMusicModal();
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
