@@ -5,51 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deep Real Stories ( एक हकीकत जीवन की ) | Official Website</title>
   
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Cinzel:wght@700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Fullscreen Clean Background Container -->
-  <div class="bg-layer">
+  <!-- Fullscreen Clean Background -->
+  <div class="bg-stage">
     <img src="background.jpg" alt="Deep Real Stories Background" class="bg-img" />
   </div>
 
-  <!-- Top Navigation Header -->
+  <!-- Top Navigation Bar -->
   <header class="top-nav">
     <nav class="nav-links">
       <a href="#home" class="active">HOME</a>
-      <a href="#music">MUSIC</a>
-      <a href="#youtube">YOUTUBE</a>
-      <a href="#contact">CONTACT</a>
+      <a href="javascript:void(0)" onclick="openMusicModal()">MUSIC</a>
+      <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank">YOUTUBE</a>
+      <a href="#contact-modal" onclick="openMusicModal()">CONTACT</a>
     </nav>
   </header>
 
-  <!-- Left Side Logo Overlay (Positioned above standing figure) -->
-  <div class="left-logo-box">
-    <img src="logo.png" alt="Logo" class="left-logo-img" />
+  <!-- Left Side Logo Overlay (Positioned right above the standing figure's head) -->
+  <div class="left-logo-above-head">
+    <img src="logo.png" alt="Deep Real Stories Logo" class="logo-img" />
   </div>
 
   <!-- Right Top Manu Memorial Card -->
-  <div class="right-manu-box">
-    <div class="manu-card">
+  <div class="right-top-manu">
+    <div class="manu-card-inner">
       <img src="manu.jpg" alt="In Memory of Manu" class="manu-img" />
-      <span class="manu-text">❤️ In Memory of Manu</span>
+      <p class="manu-caption">❤️ In Memory of Manu</p>
     </div>
   </div>
 
-  <!-- Right Bottom Dpk Overlay (Positioned near tree) -->
-  <div class="right-dpk-box">
-    <img src="Dpk.png" alt="Deep Chaudhary" class="dpk-img" />
+  <!-- Right Bottom Dpk Photo Badge -->
+  <div class="right-bottom-dpk">
+    <img src="Dpk.png" alt="Deep Chaudhary (Dabba Bhai)" class="dpk-img" />
   </div>
 
-  <!-- Clickable Button Hotspot overlaying the background image button -->
-  <div class="cta-overlay">
-    <a href="#music" class="explore-hotspot">EXPLORE MUSIC</a>
+  <!-- Clickable Overlay Hotspot right over the image's "EXPLORE MUSIC" button -->
+  <div class="cta-hotspot-area">
+    <button class="invisible-explore-btn" onclick="openMusicModal()" aria-label="Explore Music">
+      <span>EXPLORE MUSIC 🎵</span>
+    </button>
   </div>
+
+  <!-- MUSIC & SOCIAL LINKS POPUP MODAL -->
+  <div class="music-modal-overlay" id="musicModal">
+    <div class="music-modal-content">
+      <button class="close-modal-btn" onclick="closeMusicModal()">&times;</button>
+      
+      <div class="modal-header">
+        <h2 class="modal-artist">DEEP CHAUDHARY (DABBA BHAI)</h2>
+        <p class="modal-sub">Deep Real Stories ( एक हकीकत जीवन की )</p>
+      </div>
+
+      <!-- STREAMING PLATFORMS -->
+      <div class="links-section">
+        <h3 class="section-title">🎧 LISTEN EVERYWHERE</h3>
+        <div class="links-grid">
+          <a href="https://open.spotify.com/artist/3ssaaxdzuIw0J0HCczPRwT" target="_blank" class="link-card">🎵 Spotify</a>
+          <a href="https://music.apple.com/us/artist/deep-chaudhary-dabba-bhai/6784861666" target="_blank" class="link-card">🍎 Apple Music</a>
+          <a href="https://music.amazon.in/artists/B0H6QQCTWS/deep-chaudhary-dabba-bhai" target="_blank" class="link-card">📦 Amazon Music</a>
+          <a href="https://music.youtube.com/channel/UCahAOlOW1lpfCzUOpc3BmtA" target="_blank" class="link-card">▶️ YouTube Music</a>
+          <a href="https://www.jiosaavn.com/artist/deep-chaudhary-dabba-bhai--songs/k12FzIDPtHk_" target="_blank" class="link-card">🎵 JioSaavn</a>
+          <a href="https://www.deezer.com/en/artist/399678111" target="_blank" class="link-card">🎧 Deezer</a>
+          <a href="https://tidal.com/artist/81725650/u" target="_blank" class="link-card">🌊 TIDAL</a>
+          <a href="https://www.shazam.com/en-us/artist/deep-chaudhary-dabba-bhai/6784861666" target="_blank" class="link-card">🎼 Shazam</a>
+          <a href="https://soundcloud.com/deepchaudharydabbabhai" target="_blank" class="link-card">☁️ SoundCloud</a>
+          <a href="https://www.qobuz.com/us-en/interpreter/deep-chaudhary-dabba-bhai/34094310" target="_blank" class="link-card">🎵 Qobuz</a>
+          <a href="https://www.boomplay.com/artists/EQJhurNW_-E8f37FZ2UhcrwJ" target="_blank" class="link-card">🌍 Boomplay</a>
+          <a href="https://audiomack.com/deep-chaudhary-6a3dc85756029" target="_blank" class="link-card">🎙 Audiomack</a>
+          <a href="https://www.kkbox.com/tw/tc/artist/HYTK8t3oa-MNUZ3AEk" target="_blank" class="link-card">🇹🇼 KKBOX</a>
+          <a href="https://www.music-flo.com/detail/artist/414478346" target="_blank" class="link-card">🇰🇷 FLO</a>
+          <a href="https://songdew.com/Dabba_Bhai_" target="_blank" class="link-card">🎶 Songdew</a>
+        </div>
+      </div>
+
+      <!-- OFFICIAL SOCIALS -->
+      <div class="links-section">
+        <h3 class="section-title">🌐 OFFICIAL SOCIALS</h3>
+        <div class="links-grid">
+          <a href="https://www.youtube.com/@DeepRealstoriesofficial" target="_blank" class="link-card">▶️ YouTube</a>
+          <a href="https://www.instagram.com/deeprealstoriesofficial/" target="_blank" class="link-card">📷 Instagram</a>
+          <a href="https://www.facebook.com/deeprealstoriesofficial" target="_blank" class="link-card">📘 Facebook</a>
+          <a href="https://x.com/DeepRealStories" target="_blank" class="link-card">❌ X</a>
+          <a href="https://www.threads.com/@deeprealstories" target="_blank" class="link-card">🧵 Threads</a>
+          <a href="https://t.me/deeprealstories" target="_blank" class="link-card">💬 Telegram</a>
+          <a href="https://whatsapp.com/channel/0029VbCe7Mf4SpkNJEBwc42C" target="_blank" class="link-card">🟢 WhatsApp Channel</a>
+          <a href="https://www.snapchat.com/add/deeprealstories" target="_blank" class="link-card">👻 Snapchat</a>
+          <a href="https://mojapp.in/@deeprealstories" target="_blank" class="link-card">🔥 Moj</a>
+          <a href="https://share.myjosh.in/profile/e07c1b10-c3be-4261-8d43-a80106187664" target="_blank" class="link-card">⚡ Josh</a>
+          <a href="https://sharechat.com/profile/deeprealstories" target="_blank" class="link-card">💚 ShareChat</a>
+          <a href="https://chingari.io/deeprealstories" target="_blank" class="link-card">🎥 Chingari</a>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <p>❤️ Thanks for Listening & Supporting<br><strong>Deep Chaudhary (Dabba Bhai)</strong> - Deep Real Stories</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openMusicModal() {
+      document.getElementById('musicModal').classList.add('active');
+    }
+    function closeMusicModal() {
+      document.getElementById('musicModal').classList.remove('active');
+    }
+    // Close modal on outer click
+    window.onclick = function(event) {
+      const modal = document.getElementById('musicModal');
+      if (event.target === modal) {
+        closeMusicModal();
+      }
+    }
+  </script>
 
 </body>
 </html>
