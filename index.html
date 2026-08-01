@@ -3,126 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deep Real Stories | Official Website of Deep Chaudhary (Dabba Bhai)</title>
-  <meta name="description" content="Official Website of Deep Chaudhary (Dabba Bhai) - Deep Real Stories. Ek Hakikat Jeevan Ki." />
-
-  <!-- Google Typography -->
+  <title>Deep Real Stories ( एक हकीकत जीवन की ) | Official Website of Deep Chaudhary (Dabba Bhai)</title>
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800&family=Montserrat:wght@500;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Background Layer -->
-  <div class="bg-viewport">
-    <img src="background.jpg" alt="Deep Real Stories Background" class="bg-image" />
-    <div class="bg-vignette"></div>
+  <!-- 100% Fullscreen Background -->
+  <div class="bg-stage">
+    <img src="background.jpg" alt="Background" class="bg-img" />
   </div>
 
-  <!-- Transparent Glass Header -->
-  <header class="glass-navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-brand">
-        <img src="logo.png" alt="Deep Real Stories" class="nav-logo-tiny" />
-        <span class="nav-brand-text">Deep Real Stories</span>
-      </a>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#home" class="nav-item active">Home</a>
-        <a href="#music" class="nav-item">Music</a>
-        <a href="#youtube" class="nav-item">YouTube</a>
-        <a href="#contact" class="nav-item">Contact</a>
-      </nav>
-
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+  <!-- Glass Navbar -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <img src="logo.png" alt="Logo" class="nav-logo-small" />
+      <span class="nav-title">Deep Real Stories</span>
     </div>
+    <nav class="nav-links">
+      <a href="#home" class="active">HOME</a>
+      <a href="#music">MUSIC</a>
+      <a href="#youtube">YOUTUBE</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
   </header>
 
-  <!-- Hero Main Layout Container -->
-  <main class="hero-stage" id="home">
-    <div class="hero-grid">
+  <!-- Left Side Logo (25%) -->
+  <div class="left-logo-zone">
+    <img src="logo.png" alt="Deep Real Stories Emblem" class="left-logo-img" />
+  </div>
 
-      <!-- LEFT SIDE (25% Width): Floating Transparent Large Logo -->
-      <section class="grid-left">
-        <div class="floating-logo-wrapper">
-          <img src="logo.png" alt="Deep Real Stories Golden Emblem" class="hero-logo-large" />
-        </div>
-      </section>
+  <!-- Center Typography & CTA Buttons -->
+  <main class="center-content-zone">
+    <h1 class="hero-title">Deep<br>Real Stories</h1>
+    <div class="tagline-row">
+      <span class="arrow">⤝</span>
+      <p class="hindi-text">( एक हकीकत जीवन की )</p>
+      <span class="arrow">⤞</span>
+    </div>
+    <p class="meta-lead">OFFICIAL WEBSITE OF</p>
+    <h2 class="artist-name">Deep Chaudhary</h2>
+    <p class="artist-alias">(Dabba Bhai)</p>
 
-      <!-- CENTER (50% Width): Typography & Call To Action -->
-      <section class="grid-center">
-        <div class="hero-typography">
-          <h1 class="main-title">Deep<br>Real Stories</h1>
-          
-          <div class="tagline-divider">
-            <span class="gold-wing-left">⤝</span>
-            <p class="hindi-tagline">एक हकीकत जीवन की</p>
-            <span class="gold-wing-right">⤞</span>
-          </div>
-
-          <p class="website-meta">Official Website of</p>
-          <h2 class="artist-name">Deep Chaudhary</h2>
-          <p class="artist-alias">(Dabba Bhai)</p>
-
-          <div class="cta-button-group">
-            <a href="#music" class="btn-gold-glow">
-              <span class="btn-icon">🎵</span>
-              <span>EXPLORE MUSIC</span>
-            </a>
-            <a href="#youtube" class="btn-gold-outline">
-              <span class="btn-icon">▶</span>
-              <span>WATCH YOUTUBE</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- RIGHT SIDE (25% Width): Manu Memorial Card & Dpk Cutout -->
-      <section class="grid-right">
-        
-        <!-- RIGHT TOP: Memorial Card -->
-        <div class="manu-memorial-card">
-          <div class="manu-img-frame">
-            <img src="manu.jpg" alt="In Memory of Manu" class="manu-img" />
-          </div>
-          <p class="manu-caption">❤️ In Memory of Manu</p>
-        </div>
-
-        <!-- RIGHT BOTTOM: Dpk Profile Cutout -->
-        <div class="dpk-portrait-container">
-          <img src="Dpk.png" alt="Deep Chaudhary (Dabba Bhai)" class="dpk-portrait-img" />
-        </div>
-
-      </section>
-
+    <div class="btn-group">
+      <a href="#music" class="btn-gold">🎵 EXPLORE MUSIC</a>
+      <a href="#youtube" class="btn-outline">▶ WATCH YOUTUBE</a>
     </div>
   </main>
 
-  <!-- Minimal Smooth Navigation Script -->
-  <script>
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
+  <!-- Right Top Manu Memorial Card (25%) -->
+  <div class="right-top-manu">
+    <div class="manu-card-inner">
+      <img src="manu.jpg" alt="In Memory of Manu" class="manu-img" />
+      <p class="manu-caption">❤️ In Memory of Manu</p>
+    </div>
+  </div>
 
-    mobileToggle.addEventListener('click', () => {
-      mobileToggle.classList.toggle('active');
-      navLinks.classList.toggle('open');
-    });
-
-    document.querySelectorAll('.nav-item').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        mobileToggle.classList.remove('active');
-        navLinks.classList.remove('open');
-      });
-    });
-  </script>
+  <!-- Right Bottom Dpk Photo (20%) -->
+  <div class="right-bottom-dpk">
+    <img src="Dpk.png" alt="Deep Chaudhary" class="dpk-img" />
+  </div>
 
 </body>
 </html>
