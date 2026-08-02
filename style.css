@@ -589,89 +589,52 @@ html, body {
   margin-top: 2px;
 }
 
-/* 🟢 RESPONSIVE FOR MOBILE (Fully Fixed 10/10) */
-/* 🟢 RESPONSIVE FOR MOBILE (Sirf Mobile Wale Changes) */
+/* 🟢 RESPONSIVE FOR MOBILE (Fully Fixed for Background Match) */
 @media (max-width: 768px) {
-  /* Fix Navbar - Stacked and Wrap */
-  .top-nav {
-    height: auto;
-    padding: 10px 0;
-  }
-  .nav-container {
-    flex-direction: column;
-    padding: 0 10px;
-    gap: 8px;
-  }
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap; 
-  }
-  .nav-links a {
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-  }
-  .nav-stream-btn {
-    display: none; 
-  }
+  /* 1. Fix Navbar */
+  .top-nav { height: auto; padding: 10px 0; }
+  .nav-container { flex-direction: column; padding: 0 10px; gap: 8px; }
+  .nav-links { width: 100%; justify-content: center; gap: 8px; flex-wrap: wrap; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 1px; }
+  .nav-stream-btn { display: none; }
 
-  /* 🟢 FIX 1: Manu Card aur Left Logo ko upar aur thoda chota kiya taaki 'Deep' text na dabe */
+  /* 2. Fix Overlap: Manu Card aur Logo ko upar aur chota kiya */
   .left-logo-hero {
-    top: 90px; 
-    left: 3vw;
+    top: 85px; 
+    left: 5px;
     width: 60px;
     min-width: 60px;
   }
-
   .right-top-manu {
-    top: 90px;
-    right: 3vw;
-    width: 95px;
-    min-width: 95px;
+    top: 85px;
+    right: 5px;
+    width: 80px;
+    min-width: 80px;
   }
-  .manu-card-box {
-    padding: 4px;
-  }
-  .manu-img-wrapper {
-    height: 75px;
-  }
-  .manu-caption {
-    font-size: 0.6rem;
-  }
+  .manu-card-box { padding: 4px; border-radius: 10px; }
+  .manu-img-wrapper { height: 70px; }
+  .manu-caption { font-size: 0.55rem; margin-top: 4px; }
 
-  /* 🟢 FIX 2: Explore Button ko ekdum niche background image button ke upar set kiya */
+  /* 3. Button Master Fix: Gold button ko upar dhakela taaki purana button chup jaye */
   .cta-hotspot-area {
-    bottom: -2px; /* Button ko bilkul niche push kar diya */
+    bottom: 14vh; /* Note: Agar button thoda aur upar/niche karna ho, toh is 14vh ko 13vh ya 15vh karke dekhna */
   }
   .gold-explore-btn {
-    padding: 0.8rem 2.8rem;
+    padding: 0.8rem 2.5rem;
     font-size: 0.85rem;
   }
 
-  /* 🟢 Dpk Photo (Dabba Bhai) Position */
+  /* 4. Dpk Profile Fix: Dabba Bhai ki photo ko button ke barabar me kiya */
   .right-bottom-dpk {
-    bottom: 11vh; 
-    right: 4vw;
-    width: 75px;
-    min-width: 75px;
+    bottom: 14vh; 
+    right: 5px;
+    width: 65px;
+    min-width: 65px;
   }
-
-  /* Fix Popup Modal elements */
-  .music-modal-content {
-    padding: 1.5rem 1rem;
-    max-height: 90vh;
-  }
-  .modal-artist {
-    font-size: 1.2rem;
-  }
-  .links-grid {
-    grid-template-columns: 1fr; 
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  .qr-card {
-    padding: 0.8rem;
-  }
+  
+  /* 5. Modals */
+  .music-modal-content { padding: 1.5rem 1rem; max-height: 90vh; }
+  .modal-artist { font-size: 1.1rem; }
+  .links-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
 }
