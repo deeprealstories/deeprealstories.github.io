@@ -589,40 +589,87 @@ html, body {
   margin-top: 2px;
 }
 
-/* RESPONSIVE FOR MOBILE */
+/* 🟢 RESPONSIVE FOR MOBILE (Fully Fixed 10/10) */
 @media (max-width: 768px) {
+  /* Fix Navbar - Stacked and Wrap */
+  .top-nav {
+    height: auto;
+    padding: 10px 0;
+  }
+  .nav-container {
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap; /* Allows menu to wrap instead of cutting off */
+  }
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+  }
+  .nav-stream-btn {
+    display: none; /* Hide button on mobile to save space */
+  }
+
+  /* Fix overlapping logos & cards - Move below navbar */
   .left-logo-hero {
-    top: 8vh;
-    left: 2vw;
-    width: 25vw;
+    top: 110px; 
+    left: 5vw;
+    width: 70px;
+    min-width: 70px;
   }
 
   .right-top-manu {
-    top: 70px;
-    right: 4vw;
-    width: 150px;
+    top: 110px;
+    right: 5vw;
+    width: 110px;
+    min-width: 110px;
+  }
+  .manu-card-box {
+    padding: 5px;
+  }
+  .manu-img-wrapper {
+    height: 90px;
+  }
+  .manu-caption {
+    font-size: 0.65rem;
   }
 
-  .manu-img-wrapper {
-    height: 125px;
+  /* Fix CTA Button and Bottom Profile Position */
+  .cta-hotspot-area {
+    bottom: 4vh;
+  }
+  .gold-explore-btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.85rem;
   }
 
   .right-bottom-dpk {
-    bottom: 2vh;
-    right: 0.5vw;
-    width: 28vw;
+    bottom: 12vh; /* Moved up so it doesn't block the button */
+    right: 5vw;
+    width: 80px;
+    min-width: 80px;
   }
 
-  .gold-explore-btn {
-    padding: 0.75rem 2.2rem;
-    font-size: 0.8rem;
+  /* Fix Popup Modal elements for easy tapping */
+  .music-modal-content {
+    padding: 1.5rem 1rem;
+    max-height: 90vh;
   }
-
+  .modal-artist {
+    font-size: 1.2rem;
+  }
   .links-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr; /* Single column on mobile for easy clicking */
   }
-
-  .nav-stream-btn {
-    display: none;
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .qr-card {
+    padding: 0.8rem;
   }
 }
