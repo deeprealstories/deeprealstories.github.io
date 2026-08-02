@@ -588,39 +588,49 @@ html, body {
   color: #888;
   margin-top: 2px;
 }
-
-/* 🟢 RESPONSIVE FOR MOBILE (Final Fix) */
+/* 🟢 RESPONSIVE FOR MOBILE (Perfectly Aligned Fix) */
 @media (max-width: 768px) {
-  .top-nav { height: auto; padding: 10px 0; }
+  /* 1. Navbar */
+  .top-nav { height: auto; padding: 12px 0; }
   .nav-container { flex-direction: column; padding: 0 10px; gap: 8px; }
-  .nav-links { width: 100%; justify-content: center; gap: 8px; flex-wrap: wrap; }
-  .nav-links a { font-size: 0.75rem; letter-spacing: 1px; }
+  .nav-links { width: 100%; justify-content: center; gap: 8px; flex-wrap: wrap; padding-bottom: 5px; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 1px; }
   .nav-stream-btn { display: none; }
 
-  /* Logo aur Manu bhai ka card */
-  .left-logo-hero { top: 90px; left: 10px; width: 60px; min-width: 60px; }
-  .right-top-manu { top: 90px; right: 10px; width: 85px; min-width: 85px; }
+  /* 🟢 FIX 1: Logo aur Manu card ko MENU se niche khiskaya (90px se 140px kiya) */
+  .left-logo-hero { 
+    top: 140px; 
+    left: 10px; 
+    width: 65px; 
+    min-width: 65px; 
+  }
+  .right-top-manu { 
+    top: 140px; 
+    right: 10px; 
+    width: 90px; 
+    min-width: 90px; 
+  }
   .manu-card-box { padding: 4px; border-radius: 10px; }
-  .manu-img-wrapper { height: 75px; }
+  .manu-img-wrapper { height: 80px; }
   .manu-caption { font-size: 0.6rem; margin-top: 4px; }
 
-  /* 🟢 MASTER FIX: Explore Button */
+  /* 🟢 FIX 2: Explore Button ko ekdum niche background wale button par land karwaya */
   .cta-hotspot-area {
-    /* Bhai, is 18% ko apne phone ke hisaab se set karna. 
-       Agar button thoda upar chahiye, toh 20% kar dena. 
-       Niche chahiye toh 15% kar dena. */
-    bottom: 18%; 
+    bottom: 20px; /* Ye ekdum niche zameen (bottom) ke paas le aayega */
   }
-  
   .gold-explore-btn {
     padding: 0.9rem 2rem;
     font-size: 0.9rem;
-    /* Is se button thoda lamba ho jayega aur peeche ki photo chhup jayegi */
-    min-width: 240px; 
+    min-width: 250px; 
   }
 
-  /* Dabba Bhai photo */
-  .right-bottom-dpk { bottom: 18%; right: 10px; width: 65px; min-width: 65px; }
+  /* 🟢 FIX 3: Dabba Bhai ki photo ko bhi button ke sath niche match kiya */
+  .right-bottom-dpk { 
+    bottom: 20px; 
+    right: 10px; 
+    width: 70px; 
+    min-width: 70px; 
+  }
   
   /* Modals */
   .music-modal-content { padding: 1.5rem 1rem; max-height: 90vh; }
