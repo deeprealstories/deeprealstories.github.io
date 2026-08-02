@@ -589,52 +589,90 @@ html, body {
   margin-top: 2px;
 }
 
+
 /* 🟢 RESPONSIVE FOR MOBILE (Fully Fixed for Background Match) */
 @media (max-width: 768px) {
-  /* 1. Fix Navbar */
-  .top-nav { height: auto; padding: 10px 0; }
-  .nav-container { flex-direction: column; padding: 0 10px; gap: 8px; }
-  .nav-links { width: 100%; justify-content: center; gap: 8px; flex-wrap: wrap; }
-  .nav-links a { font-size: 0.7rem; letter-spacing: 1px; }
-  .nav-stream-btn { display: none; }
+  
+  /* 1. Navbar Fix */
+  .top-nav {
+    height: auto;
+    padding: 8px 0;
+  }
+  .nav-container {
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 4px;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+  .nav-stream-btn {
+    display: none;
+  }
 
-  /* 2. Fix Overlap: Manu Card aur Logo ko upar aur chota kiya */
+  /* 2. Top Manu Card Fix */
   .left-logo-hero {
-    top: 85px; 
-    left: 5px;
-    width: 60px;
-    min-width: 60px;
+    top: 90px;
+    left: 8px;
+    width: 45px;
+    min-width: 45px;
   }
   .right-top-manu {
-    top: 85px;
-    right: 5px;
-    width: 80px;
-    min-width: 80px;
+    top: 90px;
+    right: 8px;
+    width: 75px;
+    min-width: 75px;
   }
-  .manu-card-box { padding: 4px; border-radius: 10px; }
-  .manu-img-wrapper { height: 70px; }
-  .manu-caption { font-size: 0.55rem; margin-top: 4px; }
+  .manu-card-box {
+    padding: 4px;
+    border-radius: 8px;
+  }
+  .manu-img-wrapper {
+    height: 62px;
+  }
+  .manu-caption {
+    font-size: 0.5rem;
+    margin-top: 2px;
+  }
 
-  /* 3. Button Master Fix: Gold button ko upar dhakela taaki purana button chup jaye */
-  .cta-hotspot-area {
-    bottom: 14vh; /* Note: Agar button thoda aur upar/niche karna ho, toh is 14vh ko 13vh ya 15vh karke dekhna */
-  }
-  .gold-explore-btn {
-    padding: 0.8rem 2.5rem;
-    font-size: 0.85rem;
-  }
-
-  /* 4. Dpk Profile Fix: Dabba Bhai ki photo ko button ke barabar me kiya */
-  .right-bottom-dpk {
-    bottom: 14vh; 
-    right: 5px;
-    width: 65px;
-    min-width: 65px;
-  }
+  /* 3. Button & Profile Fix: इन्हें ऊपर धकेल कर बैकग्राउंड इमेज के बटन पर सेट किया */
   
-  /* 5. Modals */
-  .music-modal-content { padding: 1.5rem 1rem; max-height: 90vh; }
-  .modal-artist { font-size: 1.1rem; }
-  .links-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
+  /* जो बटन नीचे आधा छुपा था (🎵 EXPLORE वाला), उसे ऊपर ला कर बैकग्राउंड के ऊपर सेट किया */
+  .cta-hotspot-area {
+    position: absolute;
+    bottom: 2.2vh; /* इसे 2.2vh से थोड़ा 2.5vh या 2vh करके देखना ताकि ये बैकग्राउंड बटन के बिल्कुल ऊपर आ जाए */
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    z-index: 15;
+  }
+
+  /* आपका असली बटन जो नीचे छुपा हुआ था, उसे बैकग्राउंड के 'EXPLORE MUSIC' जितना बड़ा और पारदर्शी (Transparent) बनाया */
+  .gold-explore-btn {
+    padding: 0.9rem 4.5rem; /* पैडिंग बढ़ाई ताकि ये बैकग्राउंड वाले बड़े बटन को पूरा ढक ले */
+    font-size: 0.85rem;
+    background: transparent !important; /* इसे पारदर्शी किया ताकि बैकग्राउंड का सुंदर बटन दिखे */
+    border: none !important;            /* बॉर्डर हटाई */
+    color: transparent !important;         /* टेक्स्ट छुपाया ताकि बैकग्राउंड का टेक्स्ट दिखे */
+    box-shadow: none !important;
+    cursor: pointer;
+  }
+
+  /* आपकी असली गोल प्रोफाइल फोटो (Dabba Bhai वाली), इसे भी थोड़ा ऊपर खिसकाया */
+  .right-bottom-dpk {
+    position: absolute;
+    bottom: 1.5vh; /* बटन के हिसाब से इसकी हाइट सेट की */
+    right: 12%;    /* इसे स्क्रीन के राइट से थोड़ा अंदर किया ताकि ये बैकग्राउंड वाले सर्कल के ठीक ऊपर बैठ जाए */
+    width: 60px;   /* साइज स्क्रीनशॉट के हिसाब से परफेक्ट किया */
+    min-width: 60px;
+    z-index: 20;   /* ताकि ये सबसे ऊपर साफ़ दिखे */
+  }
 }
+
