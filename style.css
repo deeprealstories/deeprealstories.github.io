@@ -590,6 +590,7 @@ html, body {
 }
 
 /* 🟢 RESPONSIVE FOR MOBILE (Fully Fixed 10/10) */
+/* 🟢 RESPONSIVE FOR MOBILE (Sirf Mobile Wale Changes) */
 @media (max-width: 768px) {
   /* Fix Navbar - Stacked and Wrap */
   .top-nav {
@@ -605,57 +606,58 @@ html, body {
     width: 100%;
     justify-content: center;
     gap: 12px;
-    flex-wrap: wrap; /* Allows menu to wrap instead of cutting off */
+    flex-wrap: wrap; 
   }
   .nav-links a {
     font-size: 0.75rem;
     letter-spacing: 1px;
   }
   .nav-stream-btn {
-    display: none; /* Hide button on mobile to save space */
+    display: none; 
   }
 
-  /* Fix overlapping logos & cards - Move below navbar */
+  /* 🟢 FIX 1: Manu Card aur Left Logo ko upar aur thoda chota kiya taaki 'Deep' text na dabe */
   .left-logo-hero {
-    top: 110px; 
-    left: 5vw;
-    width: 70px;
-    min-width: 70px;
+    top: 90px; 
+    left: 3vw;
+    width: 60px;
+    min-width: 60px;
   }
 
   .right-top-manu {
-    top: 110px;
-    right: 5vw;
-    width: 110px;
-    min-width: 110px;
+    top: 90px;
+    right: 3vw;
+    width: 95px;
+    min-width: 95px;
   }
   .manu-card-box {
-    padding: 5px;
+    padding: 4px;
   }
   .manu-img-wrapper {
-    height: 90px;
+    height: 75px;
   }
   .manu-caption {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 
-  /* Fix CTA Button and Bottom Profile Position */
+  /* 🟢 FIX 2: Explore Button ko ekdum niche background image button ke upar set kiya */
   .cta-hotspot-area {
-    bottom: 4vh;
+    bottom: -2px; /* Button ko bilkul niche push kar diya */
   }
   .gold-explore-btn {
-    padding: 0.8rem 2rem;
+    padding: 0.8rem 2.8rem;
     font-size: 0.85rem;
   }
 
+  /* 🟢 Dpk Photo (Dabba Bhai) Position */
   .right-bottom-dpk {
-    bottom: 12vh; /* Moved up so it doesn't block the button */
-    right: 5vw;
-    width: 80px;
-    min-width: 80px;
+    bottom: 11vh; 
+    right: 4vw;
+    width: 75px;
+    min-width: 75px;
   }
 
-  /* Fix Popup Modal elements for easy tapping */
+  /* Fix Popup Modal elements */
   .music-modal-content {
     padding: 1.5rem 1rem;
     max-height: 90vh;
@@ -664,7 +666,7 @@ html, body {
     font-size: 1.2rem;
   }
   .links-grid {
-    grid-template-columns: 1fr; /* Single column on mobile for easy clicking */
+    grid-template-columns: 1fr; 
   }
   .contact-grid {
     grid-template-columns: 1fr;
